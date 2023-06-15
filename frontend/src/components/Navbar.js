@@ -1,10 +1,12 @@
 import React from 'react'
 import "./Navbar.css"
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+    const navigate = useNavigate();
     let playVideo = false;
-    const biFrost = () => {
-        console.log("biFrost");
+    const biFrost = (x) => {
+        console.log("biFrost", x);
         const gradientOverlay = document.querySelector(".gradient-overlay");
         const video = document.querySelector(".bifrostVideo");
         console.log(gradientOverlay, video);
@@ -30,6 +32,7 @@ const Navbar = () => {
             playVideo = false;
             console.log("playVideo after ended", playVideo);
             video.classList.add("is-hidden");
+            navigate(x);
             document.querySelector(".unityFrame").classList.remove("is-hidden");
             document.querySelector(".navbar").classList.remove("is-hidden");
             document.querySelector(".App").style.backgroundColor = "#ffffff";
@@ -44,16 +47,16 @@ const Navbar = () => {
             </div>
             <div id="navbarBasicExample" className="navbar-menu">
                 <div className="navbar-start">
-                    <a className="navbar-item" onClick={biFrost}>
+                    <a className="navbar-item" onClick={()=>biFrost('/home')}>
                         Home
                     </a>
-                    <a className="navbar-item">
+                    <a className="navbar-item" onClick={()=>biFrost('/about')}>
                         About the Project
                     </a>
-                    <a className="navbar-item">
+                    <a className="navbar-item" onClick={()=>biFrost('/team')}>
                         The Team
                     </a>
-                    <a className="navbar-item">
+                    <a className="navbar-item" onClick={()=>biFrost('/contact')}>
                         Contact Us
                     </a>
                 </div>
