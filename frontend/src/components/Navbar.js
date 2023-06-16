@@ -47,11 +47,11 @@ const Navbar = () => {
             </div>
             <div id="navbarBasicExample" className="navbar-menu">
                 <div className="navbar-start">
-                    <a className="navbar-item" onClick={()=>biFrost('/home')}>
+                    <a className="navbar-item" onClick={()=>biFrost('/')}>
                         Home
                     </a>
-                    <a className="navbar-item" onClick={()=>biFrost('/about')}>
-                        About the Project
+                    <a className="navbar-item" onClick={()=>biFrost('/main')}>
+                        VR World
                     </a>
                     <a className="navbar-item" onClick={()=>biFrost('/team')}>
                         The Team
