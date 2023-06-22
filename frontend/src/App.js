@@ -2,6 +2,8 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Mainpage from "./components/Mainpage";
 import Homepage from "./components/Homepage";
+import SignUp from "./components/SignUp";
+import SignIn from "./components/SignIn";
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/main" element={<Mainpage />} />
+          <Route path="/signup" element={<SignUp />}/>
+          <Route path="/signin" element={<SignIn />}/>
         </Routes>
       </BrowserRouter>
     </div>
