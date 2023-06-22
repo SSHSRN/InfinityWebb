@@ -7,6 +7,8 @@ const Navbar = () => {
     let playVideo = false;
     const biFrost = (x) => {
         console.log("biFrost", x);
+        document.querySelector(".App").style.height = "100vh";
+        document.querySelector(".App").style.overflow = "hidden";
         const gradientOverlay = document.querySelector(".gradient-overlay");
         const video = document.querySelector(".bifrostVideo");
         console.log(gradientOverlay, video);
@@ -15,7 +17,8 @@ const Navbar = () => {
             console.log("timeout");
             console.log("playVideo before timeout", playVideo);
             gradientOverlay.style.opacity = "0";
-            document.querySelector(".unityFrame").classList.add("is-hidden");
+            document.querySelector(".unityFrame") ? document.querySelector(".unityFrame").classList.add("is-hidden") : console.log("no unityFrame");
+            document.querySelector('.heading') ? document.querySelector('.heading').classList.add("is-hidden") : console.log("no heading");
             document.querySelector(".navbar").classList.add("is-hidden");
             document.querySelector(".App").style.backgroundColor = "#000000";
         }, 500);
@@ -24,18 +27,21 @@ const Navbar = () => {
             console.log("playVideo after transitionend", playVideo);
             if(playVideo) {
                 video.classList.remove("is-hidden");
+                console.log("Removing is-hidden")
                 video.play();
             }
         });
         video.addEventListener("ended", async function() {
+            document.querySelector(".App").style.height = "auto";
+            document.querySelector(".App").style.overflow = "auto";
             console.log("ended");
             playVideo = false;
             console.log("playVideo after ended", playVideo);
             video.classList.add("is-hidden");
             navigate(x);
-            document.querySelector(".unityFrame").classList.remove("is-hidden");
+            document.querySelector(".unityFrame") ? document.querySelector(".unityFrame").classList.remove("is-hidden") : console.log("no unityFrame");
             document.querySelector(".navbar").classList.remove("is-hidden");
-            document.querySelector(".App").style.backgroundColor = "#ffffff";
+            document.querySelector(".App").style.removeProperty("background-color");
         });
     }
     return (
