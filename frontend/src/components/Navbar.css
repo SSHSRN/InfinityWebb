@@ -1,10 +1,21 @@
-.custom-color{
+.navbar {
+    background-color: rgba(255, 255, 255, 0.6) !important;
+    font-weight: bold;
+}
+
+.sticky {
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.custom-color {
     background-color: azure;
     color: black;
 }
 
-.custom-color:hover{
-    background-color: rgb(0,209,178);
+.custom-color:hover {
+    background-color: rgb(0, 209, 178);
     color: white;
     font-weight: bold;
 }

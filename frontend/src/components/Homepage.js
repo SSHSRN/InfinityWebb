@@ -43,6 +43,16 @@ const Homepage = () => {
             document.querySelector('.topTitle').classList.remove('is-hidden');
         }
     })
+    window.addEventListener('wheel', function (event) {
+        if (event.deltaY < 0) {
+            console.log('Scrolling up');
+            this.document.querySelector('.navbar') ? this.document.querySelector('.navbar').classList.add('sticky') : void (0);
+        }
+        else if (event.deltaY > 0) {
+            console.log('Scrolling down');
+            this.document.querySelector('.navbar') ? this.document.querySelector('.navbar').classList.remove('sticky') : void (0);
+        }
+    });
     return (
         <>
             <div className="gradient-overlay"></div>
