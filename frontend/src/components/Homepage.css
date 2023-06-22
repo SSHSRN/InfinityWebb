@@ -1,4 +1,4 @@
-.topBgImage {
+.BgImage1 {
     position: fixed;
     top: 0;
     left: 0;
@@ -6,12 +6,20 @@
     height: 100%;
     object-fit: cover;
     z-index: -1;
+}
 
+.heading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .topTitle {
     position: absolute;
-    top: 5%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 50px;
@@ -23,7 +31,7 @@
 
 .topHr1 {
     position: absolute;
-    top: 1%;
+    top: 10%;
     left: 30%;
     width: 40%;
     margin: auto;
@@ -33,7 +41,7 @@
 
 .topHr2 {
     position: absolute;
-    top: 10%;
+    top: 20%;
     left: 30%;
     width: 40%;
     margin-top: 20px;
@@ -46,15 +54,79 @@
     overflow: hidden;
 }
 
-.content {
+.contentDiv {
     margin: auto;
-    height: 25vh;
+    margin-top: 100vh;
     background-color: rgba(255, 255, 255, 0.1);
     color: white !important;
     padding: 10px;
-    height: 100vh;
 }
 
 .title {
     color: white !important;
+    text-align: center;
 }
+
+.content {
+    color: white !important;
+    font-size: 20px;
+    margin-top: 20px;
+    width: 60%;
+    margin: auto;
+}
+
+.slowScrollDiv {
+    transition: transform 0.5s ease-in-out;
+}
+
+.splitSection {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.img1 {
+    width: 50%;
+    height: 700px;
+    object-fit: cover;
+}
+
+.img2 {
+    height: 300px;
+    object-fit: cover;
+}
+
+.imgYtDiv {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    justify-content: space-around;
+}
+
+.BgImage2 {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.gradient-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 100%);
+    opacity: 0;
+    transition: opacity 2s;
+    pointer-events: none;
+  }
+  
+  .bifrostVideo{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+  }
+  
