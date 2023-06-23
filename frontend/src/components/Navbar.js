@@ -69,10 +69,10 @@ const Navbar = () => {
                 <div className="navbar-end">
                     <div className="navbar-item">
                         <div className="buttons">
-                            <a className="button custom-color">
+                            <a className="button custom-color" href='/signup'>
                                 Sign up
                             </a>
-                            <a className="button custom-color">
+                            <a className="button custom-color" href='/signin'>
                                 Log in
                             </a>
                         </div>

@@ -1,17 +1,12 @@
 import Navbar from "./Navbar"
 import "./Mainpage.css"
 import { useEffect } from "react"
-import $ from 'jquery';
 
 
 const Mainpage = () => {
     useEffect(() => {
-        $(document).ready(function () {
-            console.log("ready!");
-            $('iframe').on('load', function () {
-                console.log($('iframe').contents().find('html').html())
-            });
-        });
+        console.log(window.innerHeight);
+        (window.innerHeight < 800)?document.querySelector(".unityFrame").style.height = "88vh": document.querySelector(".unityFrame").style.height = "85vh";
     }, [])
     return (
         <div className="mainPage">

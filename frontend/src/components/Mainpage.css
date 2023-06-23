@@ -1,6 +1,13 @@
+.mainPage {
+  background-color: black;
+  min-height: 100vh;
+  overflow: hidden;
+}
 .unityFrame{
+  padding-top: 15vh;
+  padding-bottom: 5vh;
   width: 100%;
-  height: 75vh;
+  transform: scale(1.2);
 }
 
 .gradient-overlay {
