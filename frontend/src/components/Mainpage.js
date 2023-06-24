@@ -6,7 +6,7 @@ import { useEffect } from "react"
 const Mainpage = () => {
     useEffect(() => {
         console.log(window.innerHeight);
-        (window.innerHeight < 800)?document.querySelector(".unityFrame").style.height = "88vh": document.querySelector(".unityFrame").style.height = "85vh";
+        (window.innerHeight < 800) ? document.querySelector(".unityFrame").style.height = "88vh" : document.querySelector(".unityFrame").style.height = "85vh";
     }, [])
     return (
         <div className="mainPage">
