@@ -1,10 +1,13 @@
 import './SignUp.css'
 import { useForm } from "react-hook-form";
+import axios from 'axios';
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = (data) => {
+    const onSubmit = async(data) => {
         console.log(data);
+        let signUpResponse = await axios.post(process.env.REACT_APP_BACKEND_BASE_URL+'/signup', data);
+        console.log(signUpResponse);
     }
     return (
         <section className="hero is-fullheight">
