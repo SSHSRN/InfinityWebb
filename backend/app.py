@@ -15,9 +15,11 @@ def signup():
     database = client["db"]
     cluster = database["collection"]
     data = request.json
+
     Query=cluster.insert_one(data)
     if Query:
         return jsonify({"message": "User created successfully"})
+    
 
 # Run Server on port 5000
 if __name__ == '__main__':
