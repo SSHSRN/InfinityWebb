@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Result1 from './Result1';
+import Result5 from './Result5';
 import Result2 from './Result2';
 import Result3 from './Result3';
 import Result4 from './Result4';
@@ -38,7 +38,7 @@ const Situation2 = () => {
     }
 
     if (opt1Selected) {
-        return <Result1 />;
+        return <Result5 />;
     }
     else if (opt2Selected) {
         return <Result2 />;
