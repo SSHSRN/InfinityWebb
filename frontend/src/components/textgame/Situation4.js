@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './textgameStyles.css';
-import Situation2 from './Situation2';
+import Situation5 from './Situation5';
 
 const Situation4 = () => {
     useEffect(() => {
         document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation4.jpg")';
-        // const audio = document.querySelector('#situation2Audio');
+        // const audio = document.querySelector('#situation4Audio');
         // if (audio.paused) {
         //     audio.play();
         // }
@@ -24,10 +24,10 @@ const Situation4 = () => {
     }
 
     if (opt1Selected) {
-        return <Situation2 />;
+        return <Situation5 />;
     }
     else if (opt2Selected) {
-        return <Situation2 />;
+        return <Situation5 />;
     }
     return (
         <div className='situation situation4'>

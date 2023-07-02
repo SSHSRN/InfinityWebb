@@ -5,7 +5,7 @@ import Situation2 from './Situation2';
 const Situation3 = () => {
     useEffect(() => {
         document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation2.jpg")';
-        // const audio = document.querySelector('#situation2Audio');
+        // const audio = document.querySelector('#situation3Audio');
         // if (audio.paused) {
         //     audio.play();
         // }
