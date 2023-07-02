@@ -5,6 +5,7 @@ import Homepage from "./components/Homepage";
 import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
 import ErrorPage from "./components/ErrorPage";
+import PlanetSurvival from './components/PlanetSurvival';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/signup" element={<SignUp />}/>
           <Route path="/signin" element={<SignIn />}/>
           <Route path="*" element={<ErrorPage />} />
+          <Route path="/survival" element={<PlanetSurvival />} />
         </Routes>
       </BrowserRouter>
     </div>

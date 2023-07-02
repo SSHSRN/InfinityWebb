@@ -1,0 +1,134 @@
+.intro,
+.situation,
+.result {
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 100%;
+    border-radius: 20px;
+}
+
+.introText {
+    height: 100%;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    letter-spacing: 0.1rem;
+    line-height: 1.5;
+    margin: 0 auto;
+    width: 80%;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.situationText {
+    height: 50%;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    letter-spacing: 0.1rem;
+    line-height: 1.5;
+    margin: 0 auto;
+    width: 80%;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.optionButton {
+    width: 30%;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid #fff;
+    color: black;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+}
+
+.optionButton:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.resultText {
+    height: 100%;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    letter-spacing: 0.1rem;
+    line-height: 1.5;
+    margin: 0 auto;
+    width: 80%;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result3 {
+    background-color: rgba(20, 0, 0, 0.5);
+    height: 100%;
+    border-radius: 20px;
+}
+
+.situation2Text {
+    height: 30%;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    letter-spacing: 0.1rem;
+    line-height: 1.5;
+    margin: 0 auto;
+    width: 80%;
+    padding: 0.5rem;
+}
+
+.s2options {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.s2optionButton {
+    width: 30%;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid #fff;
+    color: black;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+}
+
+.optionImage {
+    width: 100%;
+    height: 15vh;
+}
+
+.situation3Text {
+    height: 25%;
+}
