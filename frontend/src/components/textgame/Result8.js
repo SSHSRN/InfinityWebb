@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import './textgameStyles.css';
-import Situation4 from './Situation4';
+import Situation6 from './Situation6';
 
 const Result8 = () => {
     useEffect(() => {
@@ -20,13 +20,13 @@ const Result8 = () => {
     };
 
     if (showNext) {
-        return <Situation4 />;
+        return <Situation6 />;
     }
 
     return (
         <div className='result result8'>
             <p className='resultText result8Text'>
-                Just as you thought you were being stealthy, you step on a twig and this attracts the attention of the aliens nearby.
+                Just as you thought you were being stealthy, you step on a twig and this makes a cracking sound breaking the silence of the surroundings.
             </p>
             <button className="nextButton" onClick={handleNextClick}>
                 Next &#8594;
