@@ -1,5 +1,3 @@
-// This will be shown if the player did not take the ring from the noble looking corpse in the earlier situation.
-
 import React, { useEffect } from 'react';
 import './textgameStyles.css';
 

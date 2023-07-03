@@ -3,6 +3,7 @@ import './textgameStyles.css';
 import Result7 from './Result7';
 import Result13 from './Result13';
 import Result16 from './Result16';
+import Result17 from './Result17';
 
 const Situation6 = () => {
     useEffect(() => {
@@ -43,7 +44,7 @@ const Situation6 = () => {
         return <Result16 />;
     }
     else if (opt4Selected) {
-        return <Result7 />;
+        return <Result17 />;
     }
     return (
         <div className='situation situation6'>
