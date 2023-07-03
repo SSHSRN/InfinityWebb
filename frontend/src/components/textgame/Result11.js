@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './textgameStyles.css';
-import Situation2 from './Situation2';
 
 const Result11 = () => {
     useEffect(() => {
