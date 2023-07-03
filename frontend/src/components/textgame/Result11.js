@@ -11,16 +11,6 @@ const Result11 = () => {
         // }
     }, []);
 
-    const [showNext, setShowNext] = useState(false);
-
-    const handleNextClick = () => {
-        setShowNext(true);
-    };
-
-    if (showNext) {
-        return <Situation2 />;
-    }
-
     return (
         <div className='result result11'>
             <p className='resultText result11Text'>
