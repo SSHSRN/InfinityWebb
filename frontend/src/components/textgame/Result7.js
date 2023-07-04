@@ -19,6 +19,7 @@ const Result7 = () => {
 
     if (showNext) {
         return <Result8 />;
+        // if the player has worn the body suit, then show Result22
     }
 
     return (
