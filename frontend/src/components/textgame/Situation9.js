@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './textgameStyles.css';
-import Result23 from './Result23';
 import Result21 from './Result21';
+import Result24 from './Result24';
 
 const Situation9 = () => {
     useEffect(() => {
@@ -16,16 +16,16 @@ const Situation9 = () => {
 
     const handleSituation = (situation) => {
         console.log(situation);
-        if (situation === '9_fight') {
+        if (situation === '9_accept') {
             setOpt1Selected(true);
         }
-        else if (situation === '9_ignore') {
+        else if (situation === '9_reject') {
             setOpt2Selected(true);
         }
     }
 
     if (opt1Selected) {
-        return <Result23 />;
+        return <Result24 />;
     }
     else if (opt2Selected) {
         return <Result21 />;
@@ -37,10 +37,10 @@ const Situation9 = () => {
             </p>
             <div className='options s9options'>
                 <div className='row'>
-                    <div className='optionButton s9optionButton' onClick={() => handleSituation('9_fight')}>
+                    <div className='optionButton s9optionButton' onClick={() => handleSituation('9_accept')}>
                         <p className='optionText'> Accept the proposal </p>
                     </div>
-                    <div className='optionButton s9optionButton' onClick={() => handleSituation('9_ignore')}>
+                    <div className='optionButton s9optionButton' onClick={() => handleSituation('9_reject')}>
                         <p className='optionText'> Reject the proposal </p>
                     </div>
                 </div>
