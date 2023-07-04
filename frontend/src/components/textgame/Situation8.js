@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './textgameStyles.css';
-import Result20 from './Result20';
+import Result23 from './Result23';
 import Result21 from './Result21';
 
 const Situation8 = () => {
@@ -25,7 +25,7 @@ const Situation8 = () => {
     }
 
     if (opt1Selected) {
-        return <Result20 />;
+        return <Result23 />;
     }
     else if (opt2Selected) {
         return <Result21 />;
