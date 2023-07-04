@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './textgameStyles.css';
+import Result26 from './Result26';
 
 const Result25 = () => {
     useEffect(() => {
@@ -10,12 +11,24 @@ const Result25 = () => {
         // }
     }, []);
 
+    const [showNext, setShowNext] = useState(false);
+
+    const handleNextClick = () => {
+        setShowNext(true);
+    };
+
+    if (showNext) {
+        return <Result26 />;
+    }
+
     return (
         <div className='result result25'>
             <p className='resultText result25Text'>
                 You reject her proposal as you want to return to Earth, and you leave the place immediately.
             </p>
-            <button className='homeButton' onClick={() => window.location.reload()}> Play Again </button>
+            <button className="nextButton" onClick={handleNextClick}>
+                Next &#8594;
+            </button>
             {/* <audio id="result25Audio" src="https://cdn10.solamutha.xyz/download/MsONNlECYNV9fbULaNmuJQ/1688224751/t/2016/Kabali/128/Neruppu-Da.mp3" /> */}
         </div>
     )
