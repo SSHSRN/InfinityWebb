@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './textgameStyles.css';
-import Result8 from './Result8';
+// import Result8 from './Result8';
+import Result22 from './Result22';
 
 const Result7 = () => {
     useEffect(() => {
@@ -18,7 +19,8 @@ const Result7 = () => {
     };
 
     if (showNext) {
-        return <Result8 />;
+        // return <Result8 />;
+        return <Result22 />;
         // if the player has worn the body suit, then show Result22
     }
 
