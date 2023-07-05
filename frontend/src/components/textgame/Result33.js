@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './textgameStyles.css';
-import Result29 from './Result29';
+import Result34 from './Result34';
 
 const Result33 = () => {
     useEffect(() => {
@@ -18,7 +18,7 @@ const Result33 = () => {
     };
 
     if (showNext) {
-        return <Result29 />;
+        return <Result34 />;
     }
 
     return (
