@@ -20,16 +20,16 @@ const Situation1 = () => {
 
     const handleSituation = (situation) => {
         console.log(situation);
-        if(situation === '1_small_red_button') {
+        if (situation === '1_small_red_button') {
             setOpt1Selected(true);
         }
-        else if(situation === '1_cigar') {
+        else if (situation === '1_cigar') {
             setOpt2Selected(true);
         }
-        else if(situation === '1_disable_alarms') {
+        else if (situation === '1_disable_alarms') {
             setOpt3Selected(true);
         }
-        else if(situation === '1_recite_dialogue') {
+        else if (situation === '1_recite_dialogue') {
             setOpt4Selected(true);
         }
         else {

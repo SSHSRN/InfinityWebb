@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './textgameStyles.css';
+import Situation10 from './Situation10';
 
 const Result29 = () => {
     useEffect(() => {
@@ -10,12 +11,24 @@ const Result29 = () => {
         // }
     }, []);
 
+    const [showNext, setShowNext] = useState(false);
+
+    const handleNextClick = () => {
+        setShowNext(true);
+    };
+
+    if (showNext) {
+        return <Situation10 />;
+    }
+
     return (
         <div className='result result29'>
             <p className='resultText result29Text'>
-                Boarding the repaired spaceship, you take off from the planet and head back to Earth. You are welcomed back in your home planet and you live happily ever after.
+                Boarding the repaired spaceship, you take off from the planet and head back to Earth.
             </p>
-            <button className='homeButton' onClick={() => window.location.reload()}> Play Again </button>
+            <button className="nextButton" onClick={handleNextClick}>
+                Next &#8594;
+            </button>
             {/* <audio id="result29Audio" src="https://cdn10.solamutha.xyz/download/MsONNlECYNV9fbULaNmuJQ/1688224751/t/2016/Kabali/128/Neruppu-Da.mp3" /> */}
         </div>
     )
