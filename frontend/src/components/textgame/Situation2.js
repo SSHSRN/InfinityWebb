@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Result5 from './Result5';
 import Result6 from './Result6';
-import Result3 from './Result3';
-import Result4 from './Result4';
 import './textgameStyles.css';
 
 const Situation2 = () => {
@@ -13,10 +11,9 @@ const Situation2 = () => {
         //     audio.play();
         // }
     }, []);
+
     const [opt1Selected, setOpt1Selected] = useState(false);
     const [opt2Selected, setOpt2Selected] = useState(false);
-    const [opt3Selected, setOpt3Selected] = useState(false);
-    const [opt4Selected, setOpt4Selected] = useState(false);
 
     const handleSituation = (situation) => {
         console.log(situation);
@@ -39,13 +36,6 @@ const Situation2 = () => {
     }
     else if (opt2Selected) {
         return <Result6 />;
-    }
-    else if (opt3Selected) {
-        return <Result3 />;
-    }
-    else if (opt4Selected) {
-        console.log('opt4Selected');
-        return <Result4 />;
     }
     return (
         <div className='situation situation2'>
