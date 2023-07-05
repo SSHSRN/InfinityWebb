@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Result1 from './Result1';
 import Result2 from './Result2';
 import Result3 from './Result3';
@@ -6,13 +6,12 @@ import Result4 from './Result4';
 import './textgameStyles.css';
 
 const Situation1 = () => {
-    useEffect(() => {
-        document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation1.jpg")';
-        // const audio = document.querySelector('#situation1Audio');
-        // if (audio.paused) {
-        //     audio.play();
-        // }
-    }, []);
+    document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation1.jpg")';
+    // const audio = document.querySelector('#situation1Audio');
+    // if (audio.paused) {
+    //     audio.play();
+    // }
+
     const [opt1Selected, setOpt1Selected] = useState(false);
     const [opt2Selected, setOpt2Selected] = useState(false);
     const [opt3Selected, setOpt3Selected] = useState(false);
@@ -21,32 +20,37 @@ const Situation1 = () => {
     const handleSituation = (situation) => {
         console.log(situation);
         if (situation === '1_small_red_button') {
+            sessionStorage.setItem('situation1Done', true);
+            sessionStorage.setItem('situation1Result', '1_small_red_button');
             setOpt1Selected(true);
         }
         else if (situation === '1_cigar') {
+            sessionStorage.setItem('situation1Done', true);
+            sessionStorage.setItem('situation1Result', '1_cigar');
             setOpt2Selected(true);
         }
         else if (situation === '1_disable_alarms') {
+            sessionStorage.setItem('situation1Done', true);
+            sessionStorage.setItem('situation1Result', '1_disable_alarms');
             setOpt3Selected(true);
         }
         else if (situation === '1_recite_dialogue') {
+            sessionStorage.setItem('situation1Done', true);
+            sessionStorage.setItem('situation1Result', '1_recite_dialogue');
             setOpt4Selected(true);
-        }
-        else {
-            console.log('Invalid situation');
         }
     }
 
-    if (opt1Selected) {
+    if (opt1Selected || sessionStorage.getItem('situation1Result') === '1_small_red_button') {
         return <Result1 />;
     }
-    else if (opt2Selected) {
+    else if (opt2Selected || sessionStorage.getItem('situation1Result') === '1_cigar') {
         return <Result2 />;
     }
-    else if (opt3Selected) {
+    else if (opt3Selected || sessionStorage.getItem('situation1Result') === '1_disable_alarms') {
         return <Result3 />;
     }
-    else if (opt4Selected) {
+    else if (opt4Selected || sessionStorage.getItem('situation1Result') === '1_recite_dialogue') {
         console.log('opt4Selected');
         return <Result4 />;
     }

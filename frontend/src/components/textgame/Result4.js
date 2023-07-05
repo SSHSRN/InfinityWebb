@@ -14,10 +14,11 @@ const Result4 = () => {
     const [showNext, setShowNext] = useState(false);
 
     const handleNextClick = () => {
+        sessionStorage.setItem('result4Done', true);
         setShowNext(true);
     };
 
-    if (showNext) {
+    if (showNext || sessionStorage.getItem('result4Done')) {
         return <Situation2 />;
     }
 

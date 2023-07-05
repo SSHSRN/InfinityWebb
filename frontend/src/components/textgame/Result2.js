@@ -8,6 +8,9 @@ const Result2 = () => {
         // if (audio.paused) {
         //     audio.play();
         // }
+
+        // Clear the sessionStorage
+        sessionStorage.clear();
     }, []);
 
     return (

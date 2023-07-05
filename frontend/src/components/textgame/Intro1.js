@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Intro2 from './Intro2';
 import './textgameStyles.css';
 
 const Intro1 = () => {
-    useEffect(() => {
-        document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/intro1.jpg")';
-        // const audio = document.querySelector('#intro1Audio');
-        // if (audio.paused) {
-        //     audio.play();
-        // }
-    }, []);
+    document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/intro1.jpg")';
+    // const audio = document.querySelector('#intro1Audio');
+    // if (audio.paused) {
+    //     audio.play();
+    // }
 
     const [showNext, setShowNext] = useState(false);
 
-    const handleNextClick = () => {
+    const handleNextClick = async () => {
+        await sessionStorage.setItem('intro1Done', true);
         setShowNext(true);
     };
 
-    if (showNext) {
+    if (showNext || sessionStorage.getItem('intro1Done')) {
+        console.log('showNext Intro2');
         return <Intro2 />;
     }
 
