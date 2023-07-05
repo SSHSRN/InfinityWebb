@@ -1,23 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './textgameStyles.css';
 import Result34 from './Result34';
 
 const Result32 = () => {
-    useEffect(() => {
-        document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/result32.jpg")';
-        // const audio = document.querySelector('#result32Audio');
-        // if (audio.paused) {
-        //     audio.play();
-        // }
-    }, []);
+    document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/result32.jpg")';
+    // const audio = document.querySelector('#result32Audio');
+    // if (audio.paused) {
+    //     audio.play();
+    // }
 
     const [showNext, setShowNext] = useState(false);
 
     const handleNextClick = () => {
+        sessionStorage.setItem('result32Done', true);
         setShowNext(true);
     };
 
-    if (showNext) {
+    if (showNext || sessionStorage.getItem('result32Done')) {
         return <Result34 />;
     }
 

@@ -1,25 +1,24 @@
 // This will be displayed if the player refuses to wear the alien body-suit.
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './textgameStyles.css';
 import Situation6 from './Situation6';
 
 const Result8 = () => {
-    useEffect(() => {
-        document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/result8.jpg")';
-        // const audio = document.querySelector('#result8Audio');
-        // if (audio.paused) {
-        //     audio.play();
-        // }
-    }, []);
+    document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/result8.jpg")';
+    // const audio = document.querySelector('#result8Audio');
+    // if (audio.paused) {
+    //     audio.play();
+    // }
 
     const [showNext, setShowNext] = useState(false);
 
     const handleNextClick = () => {
+        sessionStorage.setItem('result8Done', true);
         setShowNext(true);
     };
 
-    if (showNext) {
+    if (showNext || sessionStorage.getItem('result8Done')) {
         return <Situation6 />;
     }
 

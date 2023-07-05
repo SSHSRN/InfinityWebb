@@ -11,13 +11,12 @@ const Intro1 = () => {
 
     const [showNext, setShowNext] = useState(false);
 
-    const handleNextClick = async () => {
-        await sessionStorage.setItem('intro1Done', true);
+    const handleNextClick = () => {
+        sessionStorage.setItem('intro1Done', true);
         setShowNext(true);
     };
 
     if (showNext || sessionStorage.getItem('intro1Done')) {
-        console.log('showNext Intro2');
         return <Intro2 />;
     }
 

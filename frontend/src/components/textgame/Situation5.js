@@ -1,32 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './textgameStyles.css';
 import Result7 from './Result7';
 
 const Situation5 = () => {
-    useEffect(() => {
         document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation5.jpg")';
         // const audio = document.querySelector('#situation5Audio');
         // if (audio.paused) {
         //     audio.play();
         // }
-    }, []);
     const [opt1Selected, setOpt1Selected] = useState(false);
     const [opt2Selected, setOpt2Selected] = useState(false);
 
     const handleSituation = (situation) => {
         console.log(situation);
         if (situation === '5_wear') {
+            sessionStorage.setItem('situation5Done', true);
+            sessionStorage.setItem('situation5Result', '5_wear');
+            sessionStorage.setItem('suitTaken', true);
             setOpt1Selected(true);
         }
         else if (situation === '5_leave') {
+            sessionStorage.setItem('situation5Done', true);
+            sessionStorage.setItem('situation5Result', '5_leave');
+            sessionStorage.setItem('suitTaken', false);
             setOpt2Selected(true);
         }
     }
 
-    if (opt1Selected) {
-        return <Result7 />;
-    }
-    else if (opt2Selected) {
+    if (opt1Selected || opt2Selected || sessionStorage.getItem('situation5Done')) {
         return <Result7 />;
     }
     return (

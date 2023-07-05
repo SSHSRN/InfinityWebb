@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './textgameStyles.css';
-// import Result8 from './Result8';
+import Result8 from './Result8';
 import Result22 from './Result22';
 
 const Result7 = () => {
-    useEffect(() => {
-        document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/result7.jpg")';
-        // const audio = document.querySelector('#result7Audio');
-        // if (audio.paused) {
-        //     audio.play();
-        // }
-    }, []);
+    document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/result7.jpg")';
+    // const audio = document.querySelector('#result7Audio');
+    // if (audio.paused) {
+    //     audio.play();
+    // }
 
     const [showNext, setShowNext] = useState(false);
 
@@ -18,10 +16,16 @@ const Result7 = () => {
         setShowNext(true);
     };
 
-    if (showNext) {
-        // return <Result8 />;
-        return <Result22 />;
-        // if the player has worn the body suit, then show Result22
+    if (showNext || sessionStorage.getItem('result7Done')) {
+        sessionStorage.setItem('result7Done', true);
+        console.log(sessionStorage.getItem('suitTaken'));
+        if (sessionStorage.getItem('suitTaken') && sessionStorage.getItem('suitTaken') === 'true') {
+            return <Result22 />;
+        }
+        else {
+            console.log('result8');
+            return <Result8 />;
+        }   
     }
 
     return (

@@ -1,33 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './textgameStyles.css';
 import Result25 from './Result25';
 import Result24 from './Result24';
 
 const Situation11 = () => {
-    useEffect(() => {
-        document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation11.jpg")';
-        // const audio = document.querySelector('#situation11Audio');
-        // if (audio.paused) {
-        //     audio.play();
-        // }
-    }, []);
+    document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation11.jpg")';
+    // const audio = document.querySelector('#situation11Audio');
+    // if (audio.paused) {
+    //     audio.play();
+    // }
     const [opt1Selected, setOpt1Selected] = useState(false);
     const [opt2Selected, setOpt2Selected] = useState(false);
 
     const handleSituation = (situation) => {
         console.log(situation);
         if (situation === '11_family') {
+            sessionStorage.setItem('situation11Done', true);
+            sessionStorage.setItem('situation11Result', '11_family');
             setOpt1Selected(true);
         }
         else if (situation === '11_space_org') {
+            sessionStorage.setItem('situation11Done', true);
+            sessionStorage.setItem('situation11Result', '11_space_org');
             setOpt2Selected(true);
         }
     }
 
-    if (opt1Selected) {
+    if (opt1Selected || (sessionStorage.getItem('situation11Result') && sessionStorage.getItem('situation11Result') === '11_family')) {
         return <Result24 />;
     }
-    else if (opt2Selected) {
+    else if (opt2Selected || (sessionStorage.getItem('situation11Result') && sessionStorage.getItem('situation11Result') === '11_space_org')) {
         return <Result25 />;
     }
     return (

@@ -1,26 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Result5 from './Result5';
 import Result6 from './Result6';
 import './textgameStyles.css';
 
 const Situation2 = () => {
-    useEffect(() => {
-        document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation2.jpg")';
-        // const audio = document.querySelector('#situation2Audio');
-        // if (audio.paused) {
-        //     audio.play();
-        // }
-    }, []);
+    document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation2.jpg")';
+    // const audio = document.querySelector('#situation2Audio');
+    // if (audio.paused) {
+    //     audio.play();
+    // }
 
     const [opt1Selected, setOpt1Selected] = useState(false);
     const [opt2Selected, setOpt2Selected] = useState(false);
 
     const handleSituation = (situation) => {
-        console.log(situation);
         if (situation === '2_gun') {
-            setOpt1Selected(true);
+            if (sessionStorage.getItem('gunTaken')) {
+                alert('You have already taken the gun.');
+                return;
+            }
+            else {
+                sessionStorage.setItem('situation2Done', true);
+                sessionStorage.setItem('situation2Result', '2_gun');
+                sessionStorage.setItem('gunTaken', true);
+                setOpt1Selected(true);
+            }
         }
         else if (situation === '2_cave') {
+            sessionStorage.setItem('situation2Done', true);
+            sessionStorage.setItem('situation2Result', '2_cave');
             setOpt2Selected(true);
         }
         // else if (situation === '2_mountain') {
@@ -31,10 +39,10 @@ const Situation2 = () => {
         // }
     }
 
-    if (opt1Selected) {
+    if ((opt1Selected || sessionStorage.getItem('situation2Result') === '2_gun') && sessionStorage.getItem('situation2Done') === 'true') {
         return <Result5 />;
     }
-    else if (opt2Selected) {
+    else if (opt2Selected || sessionStorage.getItem('situation2Result') === '2_cave') {
         return <Result6 />;
     }
     return (

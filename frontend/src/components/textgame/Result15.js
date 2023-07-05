@@ -10,6 +10,9 @@ const Result15 = () => {
         // if (audio.paused) {
         //     audio.play();
         // }
+
+        // clear sessionStorage
+        sessionStorage.clear();
     }, []);
 
     return (

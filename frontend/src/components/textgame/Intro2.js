@@ -17,7 +17,6 @@ const Intro2 = () => {
   };
 
   if (showNext || sessionStorage.getItem('intro2Done')) {
-    console.log('showNext Sit1');
     return <Situation1 />;
   }
 

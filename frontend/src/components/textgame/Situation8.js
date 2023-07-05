@@ -4,30 +4,33 @@ import Result23 from './Result23';
 import Result26 from './Result26';
 
 const Situation8 = () => {
-    useEffect(() => {
         document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation8.jpg")';
         // const audio = document.querySelector('#situation8Audio');
         // if (audio.paused) {
         //     audio.play();
         // }
-    }, []);
+
     const [opt1Selected, setOpt1Selected] = useState(false);
     const [opt2Selected, setOpt2Selected] = useState(false);
 
     const handleSituation = (situation) => {
         console.log(situation);
         if (situation === '8_fight') {
+            sessionStorage.setItem('situation8Done', true);
+            sessionStorage.setItem('situation8Result', '8_fight');
             setOpt1Selected(true);
         }
         else if (situation === '8_ignore') {
+            sessionStorage.setItem('situation8Done', true);
+            sessionStorage.setItem('situation8Result', '8_ignore');
             setOpt2Selected(true);
         }
     }
 
-    if (opt1Selected) {
+    if (opt1Selected || (sessionStorage.getItem('situation8Result') === '8_fight')) {
         return <Result23 />;
     }
-    else if (opt2Selected) {
+    else if (opt2Selected || (sessionStorage.getItem('situation8Result') === '8_ignore')) {
         return <Result26 />;
     }
     return (

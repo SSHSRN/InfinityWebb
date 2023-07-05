@@ -1,24 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './textgameStyles.css';
 import Result14 from './Result14';
+import Result15 from './Result15';
 
 const Result13 = () => {
-    useEffect(() => {
-        document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/result13.jpg")';
-        // const audio = document.querySelector('#result13Audio');
-        // if (audio.paused) {
-        //     audio.play();
-        // }
-    }, []);
+    document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/result13.jpg")';
+    // const audio = document.querySelector('#result13Audio');
+    // if (audio.paused) {
+    //     audio.play();
+    // }
 
     const [showNext, setShowNext] = useState(false);
 
     const handleNextClick = () => {
+        sessionStorage.setItem('result13Done', true);
         setShowNext(true);
     };
 
-    if (showNext) {
-        return <Result14 />;
+    if (showNext || sessionStorage.getItem('result13Done')) {
+        if(sessionStorage.getItem('ringTaken') == 'true'){
+            return <Result14 />;
+        }
+        return <Result15 />;
     }
 
     return (

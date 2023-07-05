@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './textgameStyles.css';
 import Result20 from './Result20';
 import Result21 from './Result21';
 
 const Situation7 = () => {
-    useEffect(() => {
-        document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation7.jpg")';
-        // const audio = document.querySelector('#situation7Audio');
-        // if (audio.paused) {
-        //     audio.play();
-        // }
-    }, []);
+    document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation7.jpg")';
+    // const audio = document.querySelector('#situation7Audio');
+    // if (audio.paused) {
+    //     audio.play();
+    // }
     const [opt1Selected, setOpt1Selected] = useState(false);
     const [opt2Selected, setOpt2Selected] = useState(false);
 
     const handleSituation = (situation) => {
         console.log(situation);
         if (situation === '7_alien_text') {
+            sessionStorage.setItem('situation7Done', true);
+            sessionStorage.setItem('situation7Result', '7_alien_text');
             setOpt1Selected(true);
         }
         else if (situation === '7_flying_horse') {
@@ -24,10 +24,10 @@ const Situation7 = () => {
         }
     }
 
-    if (opt1Selected) {
+    if (opt1Selected || (sessionStorage.getItem('situation7Done') && sessionStorage.getItem('situation7Result') === '7_alien_text')) {
         return <Result20 />;
     }
-    else if (opt2Selected) {
+    else if (opt2Selected || (sessionStorage.getItem('situation7Done') && sessionStorage.getItem('situation7Result') === '7_flying_horse')) {
         return <Result21 />;
     }
     return (

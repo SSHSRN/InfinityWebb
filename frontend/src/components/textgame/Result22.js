@@ -5,21 +5,20 @@ import './textgameStyles.css';
 import Situation8 from './Situation8';
 
 const Result22 = () => {
-    useEffect(() => {
-        document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/result22.jpg")';
-        // const audio = document.querySelector('#result22Audio');
-        // if (audio.paused) {
-        //     audio.play();
-        // }
-    }, []);
+    document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/result22.jpg")';
+    // const audio = document.querySelector('#result22Audio');
+    // if (audio.paused) {
+    //     audio.play();
+    // }
 
     const [showNext, setShowNext] = useState(false);
 
     const handleNextClick = () => {
+        sessionStorage.setItem('result22Done', true);
         setShowNext(true);
     };
 
-    if (showNext) {
+    if (showNext || sessionStorage.getItem('result22Done')) {
         return <Situation8 />;
     }
 

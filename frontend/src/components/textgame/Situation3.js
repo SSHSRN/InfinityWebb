@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './textgameStyles.css';
 import Result9 from './Result9';
 import Result10 from './Result10';
@@ -6,13 +6,12 @@ import Result11 from './Result11';
 import Result12 from './Result12';
 
 const Situation3 = () => {
-    useEffect(() => {
-        document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation2.jpg")';
-        // const audio = document.querySelector('#situation3Audio');
-        // if (audio.paused) {
-        //     audio.play();
-        // }
-    }, []);
+    document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation2.jpg")';
+    // const audio = document.querySelector('#situation3Audio');
+    // if (audio.paused) {
+    //     audio.play();
+    // }
+
     const [opt1Selected, setOpt1Selected] = useState(false);
     const [opt2Selected, setOpt2Selected] = useState(false);
     const [opt3Selected, setOpt3Selected] = useState(false);
@@ -21,15 +20,27 @@ const Situation3 = () => {
     const handleSituation = (situation) => {
         console.log(situation);
         if (situation === '3_gems') {
+            sessionStorage.setItem('situation3Done', true);
+            sessionStorage.setItem('situation3Result', '3_gems');
+            sessionStorage.setItem('gemsTaken', true);
             setOpt1Selected(true);
         }
         else if (situation === '3_ring') {
+            sessionStorage.setItem('situation3Done', true);
+            sessionStorage.setItem('situation3Result', '3_ring');
+            sessionStorage.setItem('ringTaken', true);
             setOpt2Selected(true);
         }
         else if (situation === '3_health_potion') {
+            sessionStorage.setItem('situation3Done', true);
+            sessionStorage.setItem('situation3Result', '3_health_potion');
+            sessionStorage.setItem('healthPotionTaken', true);
             setOpt3Selected(true);
         }
         else if (situation === '3_return') {
+            sessionStorage.setItem('situation3Done', true);
+            sessionStorage.setItem('situation3Result', '3_return');
+            sessionStorage.setItem('noneTaken', true);
             setOpt4Selected(true);
         }
     }

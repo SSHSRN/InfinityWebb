@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './textgameStyles.css';
 import Result18 from './Result18';
 import Result13 from './Result13';
 import Result16 from './Result16';
 import Result17 from './Result17';
+import Result14 from './Result14';
 
 const Situation6 = () => {
-    useEffect(() => {
-        document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation6.jpg")';
-        // const audio = document.querySelector('#situation6Audio');
-        // if (audio.paused) {
-        //     audio.play();
-        // }
-    }, []);
+    document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation6.jpg")';
+    // const audio = document.querySelector('#situation6Audio');
+    // if (audio.paused) {
+    //     audio.play();
+    // }
+
     const [opt1Selected, setOpt1Selected] = useState(false);
     const [opt2Selected, setOpt2Selected] = useState(false);
     const [opt3Selected, setOpt3Selected] = useState(false);
@@ -21,29 +21,40 @@ const Situation6 = () => {
     const handleSituation = (situation) => {
         console.log(situation);
         if (situation === '6_act') {
+            sessionStorage.setItem('situation6Done', true);
+            sessionStorage.setItem('situation6Result', '6_act');
             setOpt1Selected(true);
         }
         else if (situation === '6_run') {
+            sessionStorage.setItem('situation6Done', true);
+            sessionStorage.setItem('situation6Result', '6_run');
             setOpt2Selected(true);
         }
         else if (situation === '6_fight') {
+            sessionStorage.setItem('situation6Done', true);
+            sessionStorage.setItem('situation6Result', '6_fight');
             setOpt3Selected(true);
         }
         else if (situation === '6_surrender') {
+            sessionStorage.setItem('situation6Done', true);
+            sessionStorage.setItem('situation6Result', '6_surrender');
             setOpt4Selected(true);
         }
     }
 
-    if (opt1Selected) {
+    if (opt1Selected || (sessionStorage.getItem('situation6Done')&& sessionStorage.getItem('situation6Result') === '6_act')) {
         return <Result18 />;
     }
-    else if (opt2Selected) {
+    else if (opt2Selected || (sessionStorage.getItem('situation6Done')&& sessionStorage.getItem('situation6Result') === '6_run')) {
         return <Result13 />;
     }
-    else if (opt3Selected) {
+    else if (opt3Selected || (sessionStorage.getItem('situation6Done')&& sessionStorage.getItem('situation6Result') === '6_fight')) {
         return <Result16 />;
     }
-    else if (opt4Selected) {
+    else if (opt4Selected || (sessionStorage.getItem('situation6Done')&& sessionStorage.getItem('situation6Result') === '6_surrender')) {
+        if(sessionStorage.getItem('ringTaken') == 'true'){
+            return <Result14 />;
+        }
         return <Result17 />;
     }
     return (

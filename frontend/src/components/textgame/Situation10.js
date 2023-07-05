@@ -1,33 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './textgameStyles.css';
 import Result25 from './Result25';
-import Result24 from './Result24';
+import Situation11 from './Situation11';
 
 const Situation10 = () => {
-    useEffect(() => {
         document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation10.jpg")';
         // const audio = document.querySelector('#situation10Audio');
         // if (audio.paused) {
         //     audio.play();
         // }
-    }, []);
     const [opt1Selected, setOpt1Selected] = useState(false);
     const [opt2Selected, setOpt2Selected] = useState(false);
 
     const handleSituation = (situation) => {
         console.log(situation);
         if (situation === '10_earth') {
+            sessionStorage.setItem('situation10Done', true);
+            sessionStorage.setItem('situation10Result', '10_earth');
             setOpt1Selected(true);
         }
         else if (situation === '10_explore') {
+            sessionStorage.setItem('situation10Done', true);
+            sessionStorage.setItem('situation10Result', '10_explore');
             setOpt2Selected(true);
         }
     }
 
-    if (opt1Selected) {
-        return <Result24 />;
+    if (opt1Selected || (sessionStorage.getItem('situation10Result') && sessionStorage.getItem('situation10Result') === '10_earth')) {
+        return <Situation11 />;
     }
-    else if (opt2Selected) {
+    else if (opt2Selected || (sessionStorage.getItem('situation10Result') && sessionStorage.getItem('situation10Result') === '10_explore')) {
         return <Result25 />;
     }
     return (
