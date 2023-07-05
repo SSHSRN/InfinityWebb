@@ -26,15 +26,12 @@ const Situation2 = () => {
         else if (situation === '2_cave') {
             setOpt2Selected(true);
         }
-        else if (situation === '2_mountain') {
-            setOpt3Selected(true);
-        }
-        else if (situation === '2_outpost') {
-            setOpt4Selected(true);
-        }
-        else {
-            console.log('Invalid situation');
-        }
+        // else if (situation === '2_mountain') {
+        //     setOpt3Selected(true);
+        // }
+        // else if (situation === '2_outpost') {
+        //     setOpt4Selected(true);
+        // }
     }
 
     if (opt1Selected) {
@@ -66,7 +63,7 @@ const Situation2 = () => {
                         <p className='optionText'> A cave </p>
                     </div>
                 </div>
-                <div className='row'>
+                {/* <div className='row'>
                     <div className='optionButton s2optionButton' onClick={() => handleSituation('2_mountain')}>
                         <img className='optionImage' src='./assets/situation2_option3.jpg' alt='A mountain' />
                         <p className='optionText'> A mountain </p>
@@ -75,7 +72,7 @@ const Situation2 = () => {
                         <img className='optionImage' src='./assets/situation2_option4.jpg' alt='An abandoned alien outpost' />
                         <p className='optionText'> An abandoned alien outpost </p>
                     </div>
-                </div>
+                </div> */}
             </div>
             {/* <audio id="situation2Audio" src="https://cdn10.solamutha.xyz/download/MsONNlECYNV9fbULaNmuJQ/1688224751/t/2016/Kabali/128/Neruppu-Da.mp3" /> */}
         </div>
