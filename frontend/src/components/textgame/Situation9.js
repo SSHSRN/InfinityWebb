@@ -23,14 +23,15 @@ const Situation9 = () => {
         else if (situation === '9_reject') {
             sessionStorage.setItem('situation9Done', true);
             sessionStorage.setItem('situation9Result', '9_reject');
+            sessionStorage.removeItem('result25Done');
             setOpt2Selected(true);
         }
     }
 
-    if (opt1Selected || ((sessionStorage.getItem('situation9Result') === '9_accept') && (sessionStorage.getItem('situation10Result') === '9_accept'))) {
+    if (opt1Selected || ((sessionStorage.getItem('situation9Result')) && (sessionStorage.getItem('situation9Result') === '9_accept'))) {
         return <Result24 />;
     }
-    else if (opt2Selected || ((sessionStorage.getItem('situation9Result') === '9_reject') && (sessionStorage.getItem('situation10Result') === '9_reject'))) {
+    else if (opt2Selected || ((sessionStorage.getItem('situation9Result') === '9_reject') && (sessionStorage.getItem('situation9Result') === '9_reject'))) {
         return <Result25 />;
     }
     return (

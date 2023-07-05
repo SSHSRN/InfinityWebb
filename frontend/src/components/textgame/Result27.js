@@ -18,16 +18,16 @@ const Result27 = () => {
         setShowNext(true);
     };
 
-    if ((showNext || sessionStorage.getItem('result27Done')) && sessionStorage.getItem('ringTaken') && sessionStorage.getItem('ringTaken') === 'true') {
-        return <Result28 />;
-    }
-
-    else if ((showNext || sessionStorage.getItem('result27Done')) && sessionStorage.getItem('gemsTaken') && sessionStorage.getItem('gemsTaken') === 'true') {
-        return <Result30 />;
-    }
-
-    else if (showNext) {
-        return <Result31 />;
+    if (showNext || sessionStorage.getItem('result27Done')) {
+        if (sessionStorage.getItem('ringTaken') && sessionStorage.getItem('ringTaken') === 'true') {
+            return <Result28 />;
+        }
+        else if (sessionStorage.getItem('gemsTaken') && sessionStorage.getItem('gemsTaken') === 'true') {
+            return <Result30 />;
+        }
+        else {
+            return <Result31 />;
+        }
     }
 
     return (

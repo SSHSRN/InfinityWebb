@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './textgameStyles.css';
-import Result25 from './Result25';
 import Situation11 from './Situation11';
+import Result36 from './Result36';
 
 const Situation10 = () => {
         document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation10.jpg")';
@@ -30,7 +30,7 @@ const Situation10 = () => {
         return <Situation11 />;
     }
     else if (opt2Selected || (sessionStorage.getItem('situation10Result') && sessionStorage.getItem('situation10Result') === '10_explore')) {
-        return <Result25 />;
+        return <Result36 />;
     }
     return (
         <div className='situation situation10'>
