@@ -7,8 +7,6 @@ const PlanetSurvival = () => {
   const [showGame, setShowGame] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
-  const [currentSituation, setCurrentSituation] = useState(1);
-  const [selectedOption, setSelectedOption] = useState(null);
 
   const handlePlayClick = () => {
     setShowGame(true);
@@ -22,29 +20,12 @@ const PlanetSurvival = () => {
     setShowSettings(true);
   };
 
-  const handleOptionSelect = (option) => {
-    setSelectedOption(option);
-    // Add logic here to handle the selected option and update game variables accordingly
-  };
-
-  const handleNextSituation = () => {
-    setCurrentSituation(currentSituation + 1);
-    setSelectedOption(null);
-    // Add logic here to handle transitioning to the next situation
-  };
-
   const renderSituation = () => {
-    switch (currentSituation) {
-      case 1:
-        return (
-          <div className="survivalGame__play">
-            <Intro1 />
-          </div>
-        );
-      // Add more cases for additional situations
-      default:
-        return null;
-    }
+    return (
+      <div className="survivalGame__play">
+        <Intro1 />
+      </div>
+    );
   };
 
   return (
