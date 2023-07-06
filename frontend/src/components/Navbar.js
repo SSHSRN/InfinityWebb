@@ -1,11 +1,15 @@
 import React from 'react'
 import "./Navbar.css"
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     let playVideo = false;
     const biFrost = (x) => {
+        if (location.pathname === x) {
+            return;
+        }
         console.log("biFrost", x);
         document.querySelector(".App").style.height = "100vh";
         document.querySelector(".App").style.overflow = "hidden";
@@ -19,6 +23,7 @@ const Navbar = () => {
             gradientOverlay.style.opacity = "0";
             document.querySelector(".unityFrame") ? document.querySelector(".unityFrame").classList.add("is-hidden") : console.log("no unityFrame");
             document.querySelector('.heading') ? document.querySelector('.heading').classList.add("is-hidden") : console.log("no heading");
+            document.querySelector('.survivalGame') ? document.querySelector('.survivalGame').classList.add("is-hidden") : console.log("no survivalGame");
             document.querySelector(".navbar").classList.add("is-hidden");
             document.querySelector(".App").style.backgroundColor = "#000000";
         }, 500);
@@ -40,6 +45,8 @@ const Navbar = () => {
             video.classList.add("is-hidden");
             navigate(x);
             document.querySelector(".unityFrame") ? document.querySelector(".unityFrame").classList.remove("is-hidden") : console.log("no unityFrame");
+            document.querySelector('.heading') ? document.querySelector('.heading').classList.remove("is-hidden") : console.log("no heading");
+            document.querySelector('.survivalGame') ? document.querySelector('.survivalGame').classList.remove("is-hidden") : console.log("no survivalGame");
             document.querySelector(".navbar").classList.remove("is-hidden");
             document.querySelector(".App").style.removeProperty("background-color");
         });
