@@ -1,32 +1,17 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
-[Serializable]
-public class EnemyData
-{
-    public float hitPoints;
-}
-
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] float hitPoints = 100f;
-
+    [SerializeField] public float health = 100f;
     public void TakeDamage(float damage)
     {
-        hitPoints -= damage;
-        if (hitPoints <= 0)
+        health -= damage;
+        if (health <= 0f)
         {
             Destroy(gameObject);
         }
     }
-
-    public EnemyData GetEnemyData()
-    {
-        return new EnemyData { hitPoints = hitPoints };
-    }
-
-    public void SetEnemyData(EnemyData enemyData)
-    {
-        hitPoints = enemyData.hitPoints;
-    }
+  
 }
