@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
 import "./PlanetSurvival.css";
 import Intro1 from "./textgame/Intro1";
 
@@ -30,7 +30,7 @@ const PlanetSurvival = () => {
 
   return (
     <div className="survivalPage">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="survivalGame">
         {showGame ? (
           renderSituation()

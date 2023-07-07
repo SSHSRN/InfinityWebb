@@ -6,20 +6,39 @@ import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
 import ErrorPage from "./components/ErrorPage";
 import PlanetSurvival from './components/PlanetSurvival';
+import { useState } from 'react';
 
 function App() {
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+
+  function handleOnline() {
+    setIsOnline(true);
+  }
+
+  function handleOffline() {
+    setIsOnline(false);
+  }
+
+  window.addEventListener('online', handleOnline);
+  window.addEventListener('offline', handleOffline);
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/main" element={<Mainpage />} />
-          <Route path="/signup" element={<SignUp />}/>
-          <Route path="/signin" element={<SignIn />}/>
-          <Route path="*" element={<ErrorPage />} />
-          <Route path="/survival" element={<PlanetSurvival />} />
-        </Routes>
-      </BrowserRouter>
+      {isOnline ?
+        (
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/main" element={<Mainpage />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/signin" element={<SignIn />} />
+              <Route path="*" element={<ErrorPage />} />
+              <Route path="/survival" element={<PlanetSurvival />} />
+            </Routes>
+          </BrowserRouter>
+        ) : (
+          <PlanetSurvival />
+        )
+      }
     </div>
   );
 }
