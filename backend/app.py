@@ -1,7 +1,14 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from dotenv import load_dotenv
+import os
 import pymongo
 import time
+
+load_dotenv()
+
+mongoConnectionString = os.getenv("MONGODB_CONNECTION_URL")
+print(mongoConnectionString)
 
 app = Flask(__name__)
 CORS(app)
@@ -12,22 +19,24 @@ def hello():
 
 @app.route('/signup', methods=['POST'])
 def signup():
-    client = pymongo.MongoClient("mongodb://localhost:27017")
+    client = pymongo.MongoClient(mongoConnectionString)
     database = client["GoogleMongo"]
     cluster = database["GoogleMongo_users"]
     data = {
         "name": request.json['name'],
         "email": request.json['email'],
         "password": request.json['password'],
-        "timestamp": time.time(),
         "user_name": request.json['user_name'],
-        "last_login": time.time()
+        "last_login": time.time(),
+        "created_at": time.time(),
+        "num_of_logins": 1
     }
     # check if user already exists
     if cluster.find_one({"email": request.json['email']}):
         return jsonify({"status": "error", "message": "User already exists"}), 400
     elif cluster.find_one({"user_name": request.json['user_name']}):
         return jsonify({"status": "error", "message": "Username is already taken"}), 400
+    # create user
     else:
         cluster.insert_one(data)
         return jsonify({"status": "success", "message": "User created successfully"}), 201    
