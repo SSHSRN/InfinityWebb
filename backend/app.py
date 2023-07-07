@@ -20,8 +20,8 @@ def hello():
 @app.route('/signup', methods=['POST'])
 def signup():
     client = pymongo.MongoClient(mongoConnectionString)
-    database = client["GoogleMongo"]
-    cluster = database["GoogleMongo_users"]
+    database = client["InfinityWebb"]
+    cluster = database["InfinityWebb_users"]
     data = {
         "name": request.json['name'],
         "email": request.json['email'],
@@ -39,7 +39,28 @@ def signup():
     # create user
     else:
         cluster.insert_one(data)
-        return jsonify({"status": "success", "message": "User created successfully"}), 201    
+        return jsonify({"status": "success", "message": "User created successfully"}), 201
+
+@app.route('/login', methods=['POST'])
+def login():
+    client = pymongo.MongoClient(mongoConnectionString)
+    database = client["InfinityWebb"]
+    cluster = database["InfinityWebb_users"]
+    # check if user exists
+    if cluster.find_one({"email": request.json['email']}):
+        # check if password is correct
+        if cluster.find_one({"email": request.json['email']})['password'] == request.json['password']:
+            # update last login
+            # $set is used to update a value
+            cluster.update_one({"email": request.json['email']}, {"$set": {"last_login": time.time()}})
+            # update number of logins
+            # $inc is used to increment a value by a certain amount
+            cluster.update_one({"email": request.json['email']}, {"$inc": {"num_of_logins": 1}})
+            return jsonify({"status": "success", "message": "User logged in successfully"}), 200
+        else:
+            return jsonify({"status": "error", "message": "Incorrect password"}), 400
+    else:
+        return jsonify({"status": "error", "message": "User does not exist"}), 400
 
 # Run Server on port 5000
 if __name__ == '__main__':
