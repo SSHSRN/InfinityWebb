@@ -41,5 +41,20 @@ bot.command('issLocation', async (ctx) => {
     }
 });
 
+bot.command('peopleInSpace', async (ctx) => {
+    try {
+        const response = await axios.get(process.env.PEOPLE_IN_SPACE_URL);
+        console.log(response.data)
+        const { number, people } = response.data.data;
+        ctx.reply(`There are ${number} people in space right now!`);
+        people.forEach(person => {
+            ctx.reply(`${person.name} is in ${person.craft}`);
+        });
+    } catch (error) {
+        console.log(error);
+        ctx.reply('Sorry, something went wrong!');
+    }
+});
+
 // Launch the bot
 bot.launch();

@@ -70,6 +70,13 @@ def login():
 def locateISS():
     issLocation = requests.get(os.getenv("ISS_LOCATION_API"))
     return jsonify({"status": "success", "message": "ISS location retrieved successfully", "data": issLocation.json()}), 200
+
+@app.route('/getAstronauts', methods=['GET'])
+def getAstronauts():
+    astronauts = requests.get(os.getenv("ASTRONAUTS_API"))
+    print(astronauts.json())
+    return jsonify({"status": "success", "message": "Astronauts retrieved successfully", "data": astronauts.json()}), 200
+
 # Run Server on port 5000
 if __name__ == '__main__':
     app.run(host='localhost', port=5000, debug=True)
