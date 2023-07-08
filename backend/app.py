@@ -77,6 +77,12 @@ def getAstronauts():
     print(astronauts.json())
     return jsonify({"status": "success", "message": "Astronauts retrieved successfully", "data": astronauts.json()}), 200
 
+@app.route('/sunriseSet', methods=['POST'])
+def sunriseSet():
+    data = request.json
+    sunriseSet = requests.get(os.getenv("SUNRISE_SET_API")+str(data['latitude'])+"&lng="+str(data['longitude'])+"&date=today")
+    return jsonify({"status": "success", "message": "Sunrise and sunset retrieved successfully", "data": sunriseSet.json()}), 200
+
 # Run Server on port 5000
 if __name__ == '__main__':
     app.run(host='localhost', port=5000, debug=True)

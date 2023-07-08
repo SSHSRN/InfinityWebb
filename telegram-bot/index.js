@@ -56,5 +56,20 @@ bot.command('peopleInSpace', async (ctx) => {
     }
 });
 
+bot.command('sunRiseSet', async (ctx) => {
+    try {
+        const response = await axios.get(process.env.IP_API);
+        const { latitude, longitude } = response.data;
+        const sunRiseSetResponse = await axios.post(process.env.SUNRISE_SUNSET_URL, { latitude, longitude });
+        const { sunrise, sunset } = sunRiseSetResponse.data.data.results;
+        console.log(response.data);
+        await ctx.reply(`Sunrise is at ${sunrise} and sunset is at ${sunset}`);
+        ctx.reply('The above times are in UTC.\n\nBased on your IP address, UTC offset is: ' + response.data.utc_offset);
+    } catch (error) {
+        console.log(error);
+        ctx.reply('Sorry, something went wrong!');
+    }
+});
+
 // Launch the bot
 bot.launch();
