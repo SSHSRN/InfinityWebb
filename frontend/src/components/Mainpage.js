@@ -2,7 +2,6 @@ import Navbar from "./Navbar"
 import "./Mainpage.css"
 import { useEffect } from "react"
 
-
 const Mainpage = () => {
     useEffect(() => {
         console.log(window.innerHeight);
