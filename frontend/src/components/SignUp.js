@@ -4,9 +4,9 @@ import axios from 'axios';
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = async(data) => {
+    const onSubmit = async (data) => {
         console.log(data);
-        let signUpResponse = await axios.post(process.env.REACT_APP_BACKEND_BASE_URL+'/signup', data);
+        let signUpResponse = await axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/signup', data);
         console.log(signUpResponse);
     }
     return (
@@ -21,21 +21,21 @@ const SignUp = () => {
                                     <div className="field">
                                         <label className="label">Name</label>
                                         <div className="control">
-                                            <input className="input" type="text" placeholder="Your name" {...register("name", {required: true})} />
+                                            <input className="input" type="text" placeholder="Your name" {...register("name", { required: true })} />
                                             {errors.name && <span>This field is required</span>}
                                         </div>
                                     </div>
                                     <div className="field">
                                         <label className="label">Email</label>
                                         <div className="control">
-                                            <input className="input" type="email" placeholder="Your email" {...register("email", {required: true})} />
+                                            <input className="input" type="email" placeholder="Your email" {...register("email", { required: true })} />
                                             {errors.email && <span>This field is required and must be a valid email</span>}
                                         </div>
                                     </div>
                                     <div className="field">
                                         <label className="label">Password</label>
                                         <div className="control">
-                                            <input className="input" type="password" placeholder="Your password" {...register("password", {required: true})} />
+                                            <input className="input" type="password" placeholder="Your password" {...register("password", { required: true })} />
                                             {errors.password && <span>This field is required</span>}
                                         </div>
                                     </div>
@@ -51,6 +51,8 @@ const SignUp = () => {
                     </div>
                 </div>
             </div>
+            <div className="gradient-overlay"></div>
+            <video src={'assets/bifrostVideo.mp4'} className="bifrostVideo is-hidden" muted></video>
         </section>
     );
 };

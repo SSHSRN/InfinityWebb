@@ -24,6 +24,7 @@ const Navbar = () => {
             document.querySelector(".unityFrame") ? document.querySelector(".unityFrame").classList.add("is-hidden") : console.log("no unityFrame");
             document.querySelector('.heading') ? document.querySelector('.heading').classList.add("is-hidden") : console.log("no heading");
             document.querySelector('.survivalGame') ? document.querySelector('.survivalGame').classList.add("is-hidden") : console.log("no survivalGame");
+            document.querySelector('.teamDetails') ? document.querySelector(".teamDetails").classList.add("is-hidden") : console.log("no teamDetails");
             document.querySelector(".navbar").classList.add("is-hidden");
             document.querySelector(".App").style.backgroundColor = "#000000";
         }, 500);
@@ -47,6 +48,7 @@ const Navbar = () => {
             document.querySelector(".unityFrame") ? document.querySelector(".unityFrame").classList.remove("is-hidden") : console.log("no unityFrame");
             document.querySelector('.heading') ? document.querySelector('.heading').classList.remove("is-hidden") : console.log("no heading");
             document.querySelector('.survivalGame') ? document.querySelector('.survivalGame').classList.remove("is-hidden") : console.log("no survivalGame");
+            document.querySelector('.teamDetails') ? document.querySelector(".teamDetails").classList.remove("is-hidden") : console.log("no teamDetails");
             document.querySelector(".navbar").classList.remove("is-hidden");
             document.querySelector(".App").style.removeProperty("background-color");
         });

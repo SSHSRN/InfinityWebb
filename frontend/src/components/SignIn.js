@@ -44,6 +44,8 @@ const SignIn = () => {
           </div>
         </div>
       </div>
+      <div className="gradient-overlay"></div>
+      <video src={'assets/bifrostVideo.mp4'} className="bifrostVideo is-hidden" muted></video>
     </section>
   );
 };
