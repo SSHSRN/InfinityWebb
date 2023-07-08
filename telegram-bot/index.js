@@ -71,5 +71,41 @@ bot.command('sunRiseSet', async (ctx) => {
     }
 });
 
+bot.on('text', async (ctx) => {
+    const prefix = process.env.REQ_BODY_CONTENT_PREFIX;
+    const suffix = process.env.REQ_BODY_CONTENT_SUFFIX;
+    console.log(encodeURI(ctx.message.text));
+    const payload = prefix + encodeURI(ctx.message.text) + suffix;
+    console.log("payload: ", payload);
+    const response = await axios.post(process.env.BARD_API_ENDPOINT, payload, {
+        headers: {
+            'accept': '*/*',
+            'accept-encoding': 'gzip, deflate, br',
+            'accept-language': 'en-US,en;q=0.9',
+            'content-length': payload.length,
+            'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
+            'cookie': process.env.BARD_COOKIE,
+            'origin': 'https://bard.google.com',
+            'referer': 'https://bard.google.com/'
+        }
+    })
+        .then((response) => {
+            console.log("response is: ", response);
+            // check if the response is of type undefined
+            // console.log("Formatted response: " + response.data.split(`[["wrb.fr",null,"[[`)[1].split(`"]`)[0]);
+            let responseMsg = response.data.split(`[\\"Sure,`)[1].split(`\\"]`)[0];
+            const maxMsgLen = 4000;
+            const messages = [];
+            for (let i = 0; i < responseMsg.length; i += maxMsgLen) {
+                messages.push(responseMsg.substring(i, i + maxMsgLen));
+            }
+            messages.forEach((message) => {
+                ctx.reply(message);
+            });
+        })
+        .catch((error) => {
+            console.log("error: ", error);
+        });
+});
 // Launch the bot
 bot.launch();
