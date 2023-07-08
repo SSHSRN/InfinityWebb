@@ -8,6 +8,7 @@ import ErrorPage from "./components/ErrorPage";
 import PlanetSurvival from './components/PlanetSurvival';
 import { useState } from 'react';
 import Team from './components/Team';
+import ContactUsPage from './components/ContactUsPage';
 
 function App() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
@@ -35,6 +36,7 @@ function App() {
               <Route path="*" element={<ErrorPage />} />
               <Route path="/survival" element={<PlanetSurvival />} />
               <Route path="/team" element={<Team />} />
+              <Route path="/contact" element={<ContactUsPage />} />
             </Routes>
           </BrowserRouter>
         ) : (
