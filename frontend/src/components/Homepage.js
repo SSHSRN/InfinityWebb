@@ -22,7 +22,7 @@ const Homepage = () => {
         document.querySelector('.BgImage1').style.transform = `scale(${1 + window.scrollY / 10000})`;
         console.log(window.innerHeight);
         (window.scrollY > parseInt(parseInt(document.querySelector('.contentDiv').scrollHeight) + 2 * window.innerHeight)) ? showImg2() : showImg1();
-        if (window.scrollY > parseInt(parseInt(document.querySelector('.title1').scrollHeight) + parseInt(document.querySelector('.content1').scrollHeight) + 2 * window.innerHeight)) {
+        if (window.scrollY > parseInt(parseInt(document.querySelector('.homeIntro1').scrollHeight) + parseInt(document.querySelector('.content1').scrollHeight) + 2 * window.innerHeight)) {
             document.querySelector('.BgImage2').style.transform = 'scale(1.2)';
             document.querySelector('.imgContentDiv').style.height = '100vh';
             document.querySelector('.imgContentDiv').style.width = '100%';
@@ -61,22 +61,29 @@ const Homepage = () => {
             <div className="imgContainer">
                 <div className='heading slowScrollDiv'>
                     <hr className="topHr1" />
-                    <h1 className="topTitle is-centered">VR World</h1>
+                    <h1 className="topTitle is-centered">Infinity Webb</h1>
                     <hr className="topHr2" />
                 </div>
                 <img className='BgImage BgImage1' src="https://wallpaperaccess.com/full/1219598.jpg" alt="Background" />
             </div>
             <div className="contentDiv">
-                <h1 className="title title1">Welcome to the VR World</h1>
+                <h1 className="homeIntro1">Welcome to the Infinity Webb</h1>
                 <p className="content content1">
-                    Virtual reality (VR), the use of computer modeling and simulation that enables a person to interact with an artificial three-dimensional (3-D) visual or other sensory environment.<br /> VR applications immerse the user in a computer-generated environment that simulates reality through the use of interactive devices, which send and receive information and are worn as goggles, headsets, gloves, or body suits. In a typical VR format, a user wearing a helmet with a stereoscopic screen views animated images of a simulated environment. The illusion of “being there” (telepresence) is effected by motion sensors that pick up the user's movements and adjust the view on the screen accordingly, usually in real time (the instant the user's movement takes place). Thus, a user can tour a simulated suite of rooms, experiencing changing viewpoints and perspectives that are convincingly related to his own head turnings and steps. Wearing data gloves equipped with force-feedback devices that provide the sensation of touch, the user can even pick up and manipulate objects that he sees in the virtual environment.<br /><br />
-                    The term virtual reality was coined in 1987 by Jaron Lanier, whose research and engineering contributed a number of products to the nascent VR industry. A common thread linking early VR research and technology development in the United States was the role of the federal government, particularly the Department of Defense, the National Science Foundation, and the National Aeronautics and Space Administration (NASA). Projects funded by these agencies and pursued at university-based research laboratories yielded an extensive pool of talented personnel in fields such as computer graphics, simulation, and networked environments and established links between academic, military, and commercial work.
+                    Explore the vast cosmos and embark on thrilling journeys through our interactive space-themed website. Prepare to be captivated by a multitude of engaging features that will transport you to distant galaxies and provide endless entertainment. Whether you're a fan of games, interactive stories, or simply enjoy the wonders of the universe, our website has something special for everyone.
+                    <br /><br />
+                    Text Game with Interactive Storyline
+                    <br /><br />
+                    If you're a fan of immersive storytelling, our text-based game is especially for you. You'll be able to choose your own path and make decisions that will affect the outcome of the story. With a variety of different endings, you'll be able to play the game multiple times and experience a different story each time. The game is set in an alien world, and you must decide if you want to stay on the planet for the rest of your life or return to Earth. The game is filled with twists and turns, and you'll never know what will happen next.
+                    <br /><br />
+                    Telegram Bot
+                    <br /><br />
+                    Our Telegram bot is a great way to get updated with the sunrise and sunset times of your location, which is especially useful for those who are interested in astronomy and those who are interested in sunrise and sunset photography or those who plan their trips around the sunrise and sunset times. The bot also provides information about the International Space Station (ISS) and the scientists who are currently on board.
                 </p>
                 <div className="splitSection">
-                    <img className="img1" src="https://new.express.adobe.com/webpage/hWOmH3Bx4qMrp/resources/2197685a-cfb7-4619-9006-ce0baad03185?asset_id=2197685a-cfb7-4619-9006-ce0baad03185&image_assets=false&size=3840" alt="VR" />
+                    <img className="img1" src="./assets/homepage0.jpg" alt="VR" />
                     <div className="imgYtDiv">
-                        <img className="img2" src="https://new.express.adobe.com/webpage/hWOmH3Bx4qMrp/resources/315e5ab8-68bd-4da4-a404-3734634e42ce?asset_id=315e5ab8-68bd-4da4-a404-3734634e42ce&image_assets=false&size=1024" alt="VR" />
-                        <img className="img2" src="https://new.express.adobe.com/webpage/hWOmH3Bx4qMrp/resources/315e5ab8-68bd-4da4-a404-3734634e42ce?asset_id=315e5ab8-68bd-4da4-a404-3734634e42ce&image_assets=false&size=1024" alt="VR" />
+                        <img className="img2" src="./assets/homepage1.jpg" alt="VR" />
+                        <img className="img2" src="./assets/homepage2.jpg" alt="VR" />
                     </div>
                 </div>
             </div>
@@ -84,9 +91,10 @@ const Homepage = () => {
                 <img className='BgImage BgImage2' src='assets/1626298.jpg' alt='VR' />
             </div>
             <div className="contentDiv">
-                <h1 className="title">VR Headsets</h1>
+                <h1 className="homeIntro1">Downloadable Game</h1>
                 <p className="content">
-                    A virtual reality headset is a head-mounted device that provides virtual reality for the wearer. Virtual reality (VR) headsets are widely used with video games but they are also used in other applications, including simulators and trainers. They comprise a stereoscopic head-mounted display (providing separate images for each eye), stereo sound, and head motion tracking sensors (which may include gyroscopes, accelerometers, structured light systems, etc.). Some VR headsets also have eye tracking sensors and gaming controllers.
+                    A downloadable game and an online-playable version of the same is also publised..
+                    ## Christo ## Add more content here
                 </p>
                 <div className="splitSection">
                     <img className="img1" src="https://cdn.wallpapersafari.com/42/47/pTynIJ.jpeg" alt="VR" />

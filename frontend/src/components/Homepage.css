@@ -62,9 +62,11 @@
     padding: 10px;
 }
 
-.title {
+.homeIntro1 {
     color: white !important;
     text-align: center;
+    padding-bottom: 20px;
+    font-size: 40px;
 }
 
 .content {
