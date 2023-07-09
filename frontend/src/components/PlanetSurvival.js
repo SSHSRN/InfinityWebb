@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import Navbar from "./Navbar";
 import "./PlanetSurvival.css";
 import Intro1 from "./textgame/Intro1";
+import { useNavigate } from "react-router-dom";
 
 const PlanetSurvival = () => {
+  const navigate = useNavigate();
   const [showGame, setShowGame] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
+
+  useEffect(() => {
+    sessionStorage.getItem("email") ? console.log("Signed In") : navigate("/");
+  }, []);
 
   const handlePlayClick = () => {
     setShowGame(true);

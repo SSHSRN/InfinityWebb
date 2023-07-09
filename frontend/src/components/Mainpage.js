@@ -1,9 +1,12 @@
 import Navbar from "./Navbar"
 import "./Mainpage.css"
 import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 const Mainpage = () => {
+    const navigate = useNavigate();
     useEffect(() => {
+        sessionStorage.getItem("email") ? console.log("Signed In") : navigate("/");
         console.log(window.innerHeight);
         (window.innerHeight < 800) ? document.querySelector(".unityFrame").style.height = "88vh" : document.querySelector(".unityFrame").style.height = "85vh";
     }, [])
