@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Result5 from './Result5';
 import Result6 from './Result6';
 import './textgameStyles.css';
+import axios from 'axios';
 
 const Situation2 = () => {
     document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation2.jpg")';
@@ -13,7 +14,7 @@ const Situation2 = () => {
     const [opt1Selected, setOpt1Selected] = useState(false);
     const [opt2Selected, setOpt2Selected] = useState(false);
 
-    const handleSituation = (situation) => {
+    const handleSituation = async(situation) => {
         if (situation === '2_gun') {
             if (sessionStorage.getItem('gunTaken')) {
                 alert('You have already taken the gun.');
@@ -23,12 +24,35 @@ const Situation2 = () => {
                 sessionStorage.setItem('situation2Done', true);
                 sessionStorage.setItem('situation2Result', '2_gun');
                 sessionStorage.setItem('gunTaken', true);
+                if (navigator.onLine) {
+                    await axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                        data: {
+                            email: sessionStorage.getItem('email'),
+                            gameStatus: {
+                                situation2Done: true,
+                                situation2Result: '2_gun',
+                                gunTaken: true
+                            }
+                        }
+                    });
+                }
                 setOpt1Selected(true);
             }
         }
         else if (situation === '2_cave') {
             sessionStorage.setItem('situation2Done', true);
             sessionStorage.setItem('situation2Result', '2_cave');
+            if (navigator.onLine) {
+                await axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                    data: {
+                        email: sessionStorage.getItem('email'),
+                        gameStatus: {
+                            situation2Done: true,
+                            situation2Result: '2_cave'
+                        }
+                    }
+                });
+            }
             setOpt2Selected(true);
         }
         // else if (situation === '2_mountain') {

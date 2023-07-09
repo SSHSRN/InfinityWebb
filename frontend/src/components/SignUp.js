@@ -10,7 +10,7 @@ const SignUp = () => {
         console.log(data);
         let signUpResponse = await axios.post(process.env.REACT_APP_BACKEND_BASE_URL + "/signup", data);
         console.log(signUpResponse);
-        if (signUpResponse.status === 200) {
+        if (signUpResponse.status === 201) {
             console.log("sign up successful");
             console.log("email", data.email);
             sessionStorage.setItem("email", data.email);

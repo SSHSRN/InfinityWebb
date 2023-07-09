@@ -12,12 +12,18 @@ const Intro1 = () => {
 
     const [showNext, setShowNext] = useState(false);
 
-    const handleNextClick = async() => {
+    const handleNextClick = async () => {
         sessionStorage.setItem('intro1Done', true);
-        await axios.post(process.env.REACT_APP_BACKEND_BASE_URL+'/updateGameStatus', {
-            intro1Done: true,
-            email: sessionStorage.getItem('email')
-        });
+        if (navigator.onLine) {
+            await axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                data: {
+                    email: sessionStorage.getItem('email'),
+                    gameStatus: {
+                        intro1Done: true
+                    }
+                }
+            });
+        }
         setShowNext(true);
     };
 

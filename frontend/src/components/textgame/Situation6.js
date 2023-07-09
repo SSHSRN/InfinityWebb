@@ -5,6 +5,7 @@ import Result13 from './Result13';
 import Result16 from './Result16';
 import Result17 from './Result17';
 import Result14 from './Result14';
+import axios from 'axios';
 
 const Situation6 = () => {
     document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation6.jpg")';
@@ -23,21 +24,65 @@ const Situation6 = () => {
         if (situation === '6_act') {
             sessionStorage.setItem('situation6Done', true);
             sessionStorage.setItem('situation6Result', '6_act');
+            if (navigator.onLine) {
+                axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                    data: {
+                        email: sessionStorage.getItem('email'),
+                        gameStatus: {
+                            situation6Done: true,
+                            situation6Result: '6_act'
+                        }
+                    }
+                });
+            }
             setOpt1Selected(true);
         }
         else if (situation === '6_run') {
             sessionStorage.setItem('situation6Done', true);
             sessionStorage.setItem('situation6Result', '6_run');
+            if (navigator.onLine) {
+                axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                    data: {
+                        email: sessionStorage.getItem('email'),
+                        gameStatus: {
+                            situation6Done: true,
+                            situation6Result: '6_run'
+                        }
+                    }
+                });
+            }
             setOpt2Selected(true);
         }
         else if (situation === '6_fight') {
             sessionStorage.setItem('situation6Done', true);
             sessionStorage.setItem('situation6Result', '6_fight');
+            if (navigator.onLine) {
+                axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                    data: {
+                        email: sessionStorage.getItem('email'),
+                        gameStatus: {
+                            situation6Done: true,
+                            situation6Result: '6_fight'
+                        }
+                    }
+                });
+            }
             setOpt3Selected(true);
         }
         else if (situation === '6_surrender') {
             sessionStorage.setItem('situation6Done', true);
             sessionStorage.setItem('situation6Result', '6_surrender');
+            if (navigator.onLine) {
+                axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                    data: {
+                        email: sessionStorage.getItem('email'),
+                        gameStatus: {
+                            situation6Done: true,
+                            situation6Result: '6_surrender'
+                        }
+                    }
+                });
+            }
             setOpt4Selected(true);
         }
     }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './textgameStyles.css';
 import Result8 from './Result8';
 import Result22 from './Result22';
+import axios from 'axios';
 
 const Result7 = () => {
     document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/result7.jpg")';
@@ -13,11 +14,21 @@ const Result7 = () => {
     const [showNext, setShowNext] = useState(false);
 
     const handleNextClick = () => {
+        sessionStorage.setItem('result7Done', true);
+        if (navigator.onLine) {
+            axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                data: {
+                    email: sessionStorage.getItem('email'),
+                    gameStatus: {
+                        result7Done: true
+                    }
+                }
+            });
+        }
         setShowNext(true);
     };
 
     if (showNext || sessionStorage.getItem('result7Done')) {
-        sessionStorage.setItem('result7Done', true);
         console.log(sessionStorage.getItem('suitTaken'));
         if (sessionStorage.getItem('suitTaken') && sessionStorage.getItem('suitTaken') === 'true') {
             return <Result22 />;

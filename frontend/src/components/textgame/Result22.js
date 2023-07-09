@@ -1,6 +1,6 @@
 // This page is will be shown when the user chooses to wear the alien body suit
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './textgameStyles.css';
 import Situation8 from './Situation8';
 

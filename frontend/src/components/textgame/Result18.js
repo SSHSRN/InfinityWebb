@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './textgameStyles.css';
 import Result19 from './Result19';
+import axios from 'axios';
 
 const Result18 = () => {
     document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/result18.jpg")';
@@ -13,6 +14,16 @@ const Result18 = () => {
 
     const handleNextClick = () => {
         sessionStorage.setItem('result18Done', true);
+        if (navigator.onLine) {
+            axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                data: {
+                    email: sessionStorage.getItem('email'),
+                    gameStatus: {
+                        result18Done: true
+                    }
+                }
+            });
+        }
         setShowNext(true);
     };
 

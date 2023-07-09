@@ -4,6 +4,7 @@ import Result9 from './Result9';
 import Result10 from './Result10';
 import Result11 from './Result11';
 import Result12 from './Result12';
+import axios from 'axios';
 
 const Situation3 = () => {
     document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation2.jpg")';
@@ -17,30 +18,78 @@ const Situation3 = () => {
     const [opt3Selected, setOpt3Selected] = useState(false);
     const [opt4Selected, setOpt4Selected] = useState(false);
 
-    const handleSituation = (situation) => {
+    const handleSituation = async(situation) => {
         console.log(situation);
         if (situation === '3_gems') {
             sessionStorage.setItem('situation3Done', true);
             sessionStorage.setItem('situation3Result', '3_gems');
             sessionStorage.setItem('gemsTaken', true);
+            if (navigator.onLine) {
+                await axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                    data: {
+                        email: sessionStorage.getItem('email'),
+                        gameStatus: {
+                            situation3Done: true,
+                            situation3Result: '3_gems',
+                            gemsTaken: true
+                        }
+                    }
+                });
+            }
             setOpt1Selected(true);
         }
         else if (situation === '3_ring') {
             sessionStorage.setItem('situation3Done', true);
             sessionStorage.setItem('situation3Result', '3_ring');
             sessionStorage.setItem('ringTaken', true);
+            if (navigator.onLine) {
+                await axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                    data: {
+                        email: sessionStorage.getItem('email'),
+                        gameStatus: {
+                            situation3Done: true,
+                            situation3Result: '3_ring',
+                            ringTaken: true
+                        }
+                    }
+                });
+            }
             setOpt2Selected(true);
         }
         else if (situation === '3_health_potion') {
             sessionStorage.setItem('situation3Done', true);
             sessionStorage.setItem('situation3Result', '3_health_potion');
             sessionStorage.setItem('healthPotionTaken', true);
+            if (navigator.onLine) {
+                await axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                    data: {
+                        email: sessionStorage.getItem('email'),
+                        gameStatus: {
+                            situation3Done: true,
+                            situation3Result: '3_health_potion',
+                            healthPotionTaken: true
+                        }
+                    }
+                });
+            }
             setOpt3Selected(true);
         }
         else if (situation === '3_return') {
             sessionStorage.setItem('situation3Done', true);
             sessionStorage.setItem('situation3Result', '3_return');
             sessionStorage.setItem('noneTaken', true);
+            if (navigator.onLine) {
+                await axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                    data: {
+                        email: sessionStorage.getItem('email'),
+                        gameStatus: {
+                            situation3Done: true,
+                            situation3Result: '3_return',
+                            noneTaken: true
+                        }
+                    }
+                });
+            }
             setOpt4Selected(true);
         }
     }

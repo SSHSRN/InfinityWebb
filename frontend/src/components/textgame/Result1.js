@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './textgameStyles.css';
+import axios from 'axios';
 
 const Result1 = () => {
     useEffect(() => {
@@ -9,9 +10,17 @@ const Result1 = () => {
         //     audio.play();
         // }
 
-        // Clear the sessionStorage
-        sessionStorage.clear();
+        if (navigator.onLine) {
+            axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/gameOver', {
+                data: {
+                    email: sessionStorage.getItem('email'),
+                }
+            });
+        }
     }, []);
+    
+    // Clear the sessionStorage
+    sessionStorage.clear();
 
     return (
         <div className='result result1'>
