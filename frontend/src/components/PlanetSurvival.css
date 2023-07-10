@@ -57,3 +57,22 @@
 .homeButton:hover {
     background-color: #45a049;
 }
+
+.goToHome {
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.goToHome__button {
+    cursor: pointer;
+    font-size: 25px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    padding: 20px 40px;
+    border-radius: 10px;
+}
+
+.goToHome__button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
