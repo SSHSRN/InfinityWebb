@@ -1,0 +1,15 @@
+.vHalf {
+    height: 30vh;
+}
+
+.teamMemberImage {
+    max-height: 25vh;
+    max-width: 25vh;
+    border-radius: 50%;
+}
+
+.memberCard {
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 50%;
+    margin-left: 25%;
+}

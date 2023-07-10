@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './textgameStyles.css';
+import axios from 'axios';
 
 const Result21 = () => {
     useEffect(() => {
@@ -8,6 +9,14 @@ const Result21 = () => {
         // if (audio.paused) {
         //     audio.play();
         // }
+
+        if (navigator.onLine) {
+            axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/gameOver', {
+                data: {
+                    email: sessionStorage.getItem('email'),
+                }
+            });
+        }
 
         // clear sessionStorage
         sessionStorage.clear();

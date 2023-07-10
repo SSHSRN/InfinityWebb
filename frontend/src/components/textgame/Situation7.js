@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './textgameStyles.css';
 import Result20 from './Result20';
 import Result21 from './Result21';
+import axios from 'axios';
 
 const Situation7 = () => {
     document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation7.jpg")';
@@ -17,9 +18,33 @@ const Situation7 = () => {
         if (situation === '7_alien_text') {
             sessionStorage.setItem('situation7Done', true);
             sessionStorage.setItem('situation7Result', '7_alien_text');
+            if (navigator.onLine) {
+                axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                    data: {
+                        email: sessionStorage.getItem('email'),
+                        gameStatus: {
+                            situation7Done: true,
+                            situation7Result: '7_alien_text'
+                        }
+                    }
+                });
+            }
             setOpt1Selected(true);
         }
         else if (situation === '7_flying_horse') {
+            sessionStorage.setItem('situation7Done', true);
+            sessionStorage.setItem('situation7Result', '7_flying_horse');
+            if (navigator.onLine) {
+                axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                    data: {
+                        email: sessionStorage.getItem('email'),
+                        gameStatus: {
+                            situation7Done: true,
+                            situation7Result: '7_flying_horse'
+                        }
+                    }
+                });
+            }
             setOpt2Selected(true);
         }
     }

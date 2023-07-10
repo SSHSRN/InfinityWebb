@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Situation1 from './Situation1';
 import './textgameStyles.css';
+import axios from 'axios';
 
 const Intro2 = () => {
   document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/intro2.jpg")';
@@ -11,8 +12,18 @@ const Intro2 = () => {
 
   const [showNext, setShowNext] = useState(false);
 
-  const handleNextClick = () => {
+  const handleNextClick = async () => {
     sessionStorage.setItem('intro2Done', true);
+    if (navigator.onLine) {
+      await axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+        data: {
+          email: sessionStorage.getItem('email'),
+          gameStatus: {
+            intro2Done: true
+          }
+        }
+      });
+    }
     setShowNext(true);
   };
 

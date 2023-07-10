@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './textgameStyles.css';
 import Result23 from './Result23';
 import Result26 from './Result26';
+import axios from 'axios';
 
 const Situation8 = () => {
         document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation8.jpg")';
@@ -18,11 +19,33 @@ const Situation8 = () => {
         if (situation === '8_fight') {
             sessionStorage.setItem('situation8Done', true);
             sessionStorage.setItem('situation8Result', '8_fight');
+            if (navigator.onLine) {
+                axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                    data: {
+                        email: sessionStorage.getItem('email'),
+                        gameStatus: {
+                            situation8Done: true,
+                            situation8Result: '8_fight'
+                        }
+                    }
+                });
+            }
             setOpt1Selected(true);
         }
         else if (situation === '8_ignore') {
             sessionStorage.setItem('situation8Done', true);
             sessionStorage.setItem('situation8Result', '8_ignore');
+            if (navigator.onLine) {
+                axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                    data: {
+                        email: sessionStorage.getItem('email'),
+                        gameStatus: {
+                            situation8Done: true,
+                            situation8Result: '8_ignore'
+                        }
+                    }
+                });
+            }
             setOpt2Selected(true);
         }
     }

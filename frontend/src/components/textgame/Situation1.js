@@ -4,6 +4,7 @@ import Result2 from './Result2';
 import Result3 from './Result3';
 import Result4 from './Result4';
 import './textgameStyles.css';
+import axios from 'axios';
 
 const Situation1 = () => {
     document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation1.jpg")';
@@ -17,26 +18,71 @@ const Situation1 = () => {
     const [opt3Selected, setOpt3Selected] = useState(false);
     const [opt4Selected, setOpt4Selected] = useState(false);
 
-    const handleSituation = (situation) => {
+    const handleSituation = async (situation) => {
         console.log(situation);
         if (situation === '1_small_red_button') {
             sessionStorage.setItem('situation1Done', true);
             sessionStorage.setItem('situation1Result', '1_small_red_button');
+            if (navigator.onLine) {
+                await axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                    data: {
+                        email: sessionStorage.getItem('email'),
+                        gameStatus: {
+                            situation1Done: true,
+                            situation1Result: '1_small_red_button'
+                        }
+                    }
+                });
+            }
+
             setOpt1Selected(true);
         }
         else if (situation === '1_cigar') {
             sessionStorage.setItem('situation1Done', true);
             sessionStorage.setItem('situation1Result', '1_cigar');
+            if (navigator.onLine) {
+                await axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                    data: {
+                        email: sessionStorage.getItem('email'),
+                        gameStatus: {
+                            situation1Done: true,
+                            situation1Result: '1_cigar'
+                        }
+                    }
+                });
+            }
             setOpt2Selected(true);
         }
         else if (situation === '1_disable_alarms') {
             sessionStorage.setItem('situation1Done', true);
             sessionStorage.setItem('situation1Result', '1_disable_alarms');
+            if (navigator.onLine) {
+                await axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                    data: {
+                        email: sessionStorage.getItem('email'),
+                        gameStatus: {
+                            situation1Done: true,
+                            situation1Result: '1_disable_alarms'
+                        }
+                    }
+                });
+            }
             setOpt3Selected(true);
         }
         else if (situation === '1_recite_dialogue') {
             sessionStorage.setItem('situation1Done', true);
             sessionStorage.setItem('situation1Result', '1_recite_dialogue');
+            if (navigator.onLine) {
+                await axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                    data: {
+                        email: sessionStorage.getItem('email'),
+                        gameStatus: {
+                            situation1Done: true,
+                            situation1Result: '1_recite_dialogue'
+                        }
+                    }
+                });
+            }
             setOpt4Selected(true);
         }
     }

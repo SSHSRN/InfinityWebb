@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './textgameStyles.css';
 import Result7 from './Result7';
+import axios from 'axios';
 
 const Situation5 = () => {
         document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation5.jpg")';
@@ -17,12 +18,36 @@ const Situation5 = () => {
             sessionStorage.setItem('situation5Done', true);
             sessionStorage.setItem('situation5Result', '5_wear');
             sessionStorage.setItem('suitTaken', true);
+            if (navigator.onLine) {
+                axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                    data: {
+                        email: sessionStorage.getItem('email'),
+                        gameStatus: {
+                            situation5Done: true,
+                            situation5Result: '5_wear',
+                            suitTaken: true
+                        }
+                    }
+                });
+            }
             setOpt1Selected(true);
         }
         else if (situation === '5_leave') {
             sessionStorage.setItem('situation5Done', true);
             sessionStorage.setItem('situation5Result', '5_leave');
             sessionStorage.setItem('suitTaken', false);
+            if (navigator.onLine) {
+                axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                    data: {
+                        email: sessionStorage.getItem('email'),
+                        gameStatus: {
+                            situation5Done: true,
+                            situation5Result: '5_leave',
+                            suitTaken: false
+                        }
+                    }
+                });
+            }
             setOpt2Selected(true);
         }
     }

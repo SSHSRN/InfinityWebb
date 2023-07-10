@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './textgameStyles.css';
 import Result32 from './Result32';
 import Situation12 from './Situation12';
+import axios from 'axios';
 
 const Situation11 = () => {
     document.querySelector('.survivalGame').style.backgroundImage = 'url("./assets/situation11.jpg")';
@@ -17,11 +18,33 @@ const Situation11 = () => {
         if (situation === '11_family') {
             sessionStorage.setItem('situation11Done', true);
             sessionStorage.setItem('situation11Result', '11_family');
+            if (navigator.onLine) {
+                axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                    data: {
+                        email: sessionStorage.getItem('email'),
+                        gameStatus: {
+                            situation11Done: true,
+                            situation11Result: '11_family'
+                        }
+                    }
+                });
+            }
             setOpt1Selected(true);
         }
         else if (situation === '11_space_org') {
             sessionStorage.setItem('situation11Done', true);
             sessionStorage.setItem('situation11Result', '11_space_org');
+            if (navigator.onLine) {
+                axios.post(process.env.REACT_APP_BACKEND_BASE_URL + '/updateGameStatus', {
+                    data: {
+                        email: sessionStorage.getItem('email'),
+                        gameStatus: {
+                            situation11Done: true,
+                            situation11Result: '11_space_org'
+                        }
+                    }
+                });
+            }
             setOpt2Selected(true);
         }
     }
