@@ -83,6 +83,9 @@ const Navbar = () => {
                     <a className="navbar-item" onClick={() => biFrost('/main')}>
                         VR World
                     </a>
+                    <a className="navbar-item" onClick={() => biFrost('/survival')}>
+                        Alien Planet Survival Game
+                    </a>
                     <a className="navbar-item" onClick={() => biFrost('/team')}>
                         The Team
                     </a>
