@@ -4,15 +4,12 @@ from dotenv import load_dotenv
 import os
 import pymongo
 import time
-import google.generativeai as palm
 import requests
 
 load_dotenv()
 
 mongoConnectionString = os.getenv("MONGODB_CONNECTION_URL")
 # print(mongoConnectionString)
-
-palm.configure(api_key=os.getenv("GOOGLE_AI_API_KEY"))
 
 app = Flask(__name__)
 CORS(app)
