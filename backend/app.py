@@ -79,11 +79,14 @@ def updateGameStatus():
 
 @app.route('/gameOver', methods=['POST'])
 def gameOver():
+    data = request.json['data']
     client = pymongo.MongoClient(mongoConnectionString)
     database = client["InfinityWebb"]
     cluster = database["InfinityWebb_users"]
     # Delete the game status from the database
-    cluster.update_one({"email": request.json['email']}, {"$unset": {"game_status": ""}})
+    cluster.update_one({"email": data['email']}, {"$unset": {"game_status": ""}})
+    # add an empty array to the game status
+    cluster.update_one({"email": data['email']}, {"$set": {"game_status": []}})
     return jsonify({"status": "success", "message": "Game status reset successfully"}), 200
 
 @app.route('/getGameStatus', methods=['POST'])

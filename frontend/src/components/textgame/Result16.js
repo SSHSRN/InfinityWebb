@@ -18,8 +18,12 @@ const Result16 = () => {
             });
         }
 
-        // clear sessionStorage
+        // take a backup of the sessionStorage email
+        const email = sessionStorage.getItem('email');
+        // Clear the sessionStorage
         sessionStorage.clear();
+        // Restore the email
+        sessionStorage.setItem('email', email);
     }, []);
 
     return (
