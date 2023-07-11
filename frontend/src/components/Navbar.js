@@ -80,7 +80,7 @@ const Navbar = () => {
                     <a className="navbar-item" onClick={() => biFrost('/')}>
                         Home
                     </a>
-                    <a className="navbar-item" onClick={() => biFrost('/main')}>
+                    <a className="navbar-item" onClick={() => biFrost('/')}>
                         VR World
                     </a>
                     <a className="navbar-item" onClick={() => biFrost('/survival')}>
