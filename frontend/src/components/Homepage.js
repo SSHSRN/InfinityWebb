@@ -23,14 +23,14 @@ const Homepage = () => {
         console.log(window.innerHeight);
         (window.scrollY > parseInt(parseInt(document.querySelector('.contentDiv').scrollHeight) + 2 * window.innerHeight)) ? showImg2() : showImg1();
         if (window.scrollY > parseInt(parseInt(document.querySelector('.homeIntro1').scrollHeight) + parseInt(document.querySelector('.content1').scrollHeight) + 2 * window.innerHeight)) {
-            document.querySelector('.BgImage2').style.transform = 'scale(1.2)';
+            document.querySelector('.BgImage2').style.transform = 'scale(1.3)';
             document.querySelector('.imgContentDiv').style.height = '100vh';
             document.querySelector('.imgContentDiv').style.width = '100%';
             document.querySelector('.imgContentDiv').style.overflow = 'hidden';
         }
         if ((window.scrollY >= parseInt(parseInt(document.querySelector('.contentDiv').scrollHeight) + 2 * window.innerHeight))) {
             // image with class BgImage2 must resize from scale 1.5 to 1 smoothly on scroll
-            document.querySelector('.BgImage2').style.transform = `scale(${1.2 - (window.scrollY - parseInt(parseInt(document.querySelector('.contentDiv').scrollHeight) + 2 * window.innerHeight)) / 10000})`;
+            document.querySelector('.BgImage2').style.transform = `scale(${1.3 - (window.scrollY - parseInt(parseInt(document.querySelector('.contentDiv').scrollHeight) + 2 * window.innerHeight)) / 10000})`;
         }
         if (window.scrollY > window.innerHeight) {
             document.querySelector('.topHr1').classList.add('is-hidden');
@@ -102,6 +102,13 @@ const Homepage = () => {
                         To test the Telegram bot, click on <a href="https://t.me/infinitywebb_bot" target="_blank" rel="noreferrer">this link</a> and send the message /start to the bot.
                     </div>
                 </p>
+                <div className="splitSection">
+                    <img className="img1" src="./assets/homepage3.jpg" alt="VR" />
+                    <div className="imgYtDiv">
+                        <img className="img2" src="./assets/homepage4.jpg" alt="VR" />
+                        <img className="img2" src="./assets/homepage5.jpg" alt="VR" />
+                    </div>
+                </div>
             </div>
         </>
     )
