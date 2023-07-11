@@ -7,6 +7,7 @@ InfinityWebb is a space-themed website that has a game playable online and offli
 - React
 - JavaScript
 - Python (Flask)
+- C#
 - MongoDB
 - Docker Compose
 - Google Cloud Platform
