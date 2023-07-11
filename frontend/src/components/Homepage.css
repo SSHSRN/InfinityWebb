@@ -57,7 +57,7 @@
 .contentDiv {
     margin: auto;
     margin-top: 100vh;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.4);
     color: white !important;
     padding: 10px;
 }
@@ -91,11 +91,13 @@
     width: 50%;
     height: 700px;
     object-fit: cover;
+    border-radius: 20px;
 }
 
 .img2 {
     height: 300px;
     object-fit: cover;
+    border-radius: 20px;
 }
 
 .imgYtDiv {
@@ -133,8 +135,29 @@
   }
   
   .infoDiv {
-    position: relative;
     margin-top: 50px;
     padding: 20px 40px;
     border-radius: 20px;
+  }
+
+  .downloadDiv {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .downloadBtn {
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #990000;
+    color: white;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .downloadBtn:hover {
+    background-color: #ff0000;
   }

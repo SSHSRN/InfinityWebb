@@ -79,6 +79,11 @@ const Homepage = () => {
                     <br /><br />
                     Our Telegram bot is a great way to get updated with the sunrise and sunset times of your location, which is especially useful for those who are interested in astronomy and those who are interested in sunrise and sunset photography or those who plan their trips around the sunrise and sunset times. The bot also provides information about the International Space Station (ISS) and the scientists who are currently on board.
                 </p>
+                <div className=" downloadDiv">
+                    <button className='downloadBtn' onClick={() => {
+                        window.open('https://t.me/infinitywebb_bot', '_blank');
+                    }}>Test Telegram Bot</button>
+                </div>
                 <div className="splitSection">
                     <img className="img1" src="./assets/homepage0.jpg" alt="VR" />
                     <div className="imgYtDiv">
@@ -91,17 +96,17 @@ const Homepage = () => {
                 <img className='BgImage BgImage2' src='assets/1626298.jpg' alt='VR' />
             </div>
             <div className="contentDiv">
-                <h1 className="homeIntro1">Downloadable Game</h1>
+                <h1 className="homeIntro1">Shoot the Bot Game</h1>
                 <p className="content">
-                    If you are a fan of open world games, you will love our downloadable game. You will be able to explore snow mountains, different terrains and space maze . You will be able to travel to different planets and explore their unique environments. You will be able to interact with the environment and AI NPCs in the game.
+                    If you are a fan of open world games, you will love our downloadable game. This is a game of adventure with three exciting levels. A player can explore the game in 3 different terrains -water, Snow and space. The game encompasses chasing AI bots which can be shot down by the player in water and snow level.The most exciting is the space level in which the player moves through a space maze which poses  a challenge of getting lost in the void space. Start your exploration journeying through all levels.
                     <br /><br />
-                    <div className="has-background-warning has-text-black-bis infoDiv">
-                        To download the game, click on <a href="https://drive.google.com/drive/folders/1aUIcbdUurk7qtMfkh6KN6gEFhbwqtHTE?usp=sharing" target="_blank" rel="noreferrer">this link</a> and download the contents. To play the game, open the folder and run the executable file.
-                    </div>
-                    <div className="has-background-warning has-text-black-bis infoDiv">
-                        To test the Telegram bot, click on <a href="https://t.me/infinitywebb_bot" target="_blank" rel="noreferrer">this link</a> and send the message /start to the bot.
+                    <div className=" downloadDiv">
+                        <button className='downloadBtn' onClick={() => {
+                            window.open('https://drive.google.com/drive/folders/1aUIcbdUurk7qtMfkh6KN6gEFhbwqtHTE?usp=sharing', '_blank');
+                        }}>Download Game</button>
                     </div>
                 </p>
+                <h1 className="homeIntro1">Screenshots</h1>
                 <div className="splitSection">
                     <img className="img1" src="./assets/homepage3.jpg" alt="VR" />
                     <div className="imgYtDiv">
