@@ -19,10 +19,6 @@ const Team = () => {
                                     />
                                     <h2 className="title is-4">Srihari S</h2>
                                     <h3 className="subtitle is-6">Full Stack Developer</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Nullam id nisi nec nisl convallis aliquam eget in enim.
-                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -38,11 +34,6 @@ const Team = () => {
                                     />
                                     <h2 className="title is-4">E Christo Raymonde</h2>
                                     <h3 className="subtitle is-6">Game Developer</h3>
-                                    <p>
-                                        Pellentesque pellentesque, erat vitae feugiat facilisis,
-                                        ipsum massa tristique turpis, sed volutpat enim magna vitae
-                                        arcu.
-                                    </p>
                                 </div>
                             </div>
                         </div>
