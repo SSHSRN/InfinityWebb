@@ -102,7 +102,7 @@ const Homepage = () => {
                     <br /><br />
                     <div className=" downloadDiv">
                         <button className='downloadBtn' onClick={() => {
-                            window.open('https://drive.google.com/drive/folders/1aUIcbdUurk7qtMfkh6KN6gEFhbwqtHTE?usp=sharing', '_blank');
+                            window.open('https://drive.google.com/drive/folders/1Hia0H71lUnv2DLI9kq1zcT1m2BXdb1BZ?usp=drive_link', '_blank');
                         }}>Download Game</button>
                     </div>
                 </p>
