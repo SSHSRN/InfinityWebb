@@ -9,7 +9,7 @@ bot.hears('hi', (ctx) => ctx.reply('Hey there!'));
 
 bot.command('start', (ctx) => {
     ctx.reply('Welcome to Space Bot 🤖');
-    ctx.reply('Type /apod to get the Astronomy Picture of the Day');
+    ctx.reply('Type /help to know more about me');
 });
 
 bot.command('apod', async (ctx) => {
@@ -69,6 +69,13 @@ bot.command('sunRiseSet', async (ctx) => {
         console.log(error);
         ctx.reply('Sorry, something went wrong!');
     }
+});
+
+bot.command('help', (ctx) => {
+    ctx.reply('Type /apod to get the Astronomy Picture of the Day');
+    ctx.reply('Type /issLocation to get the current location of the International Space Station');
+    ctx.reply('Type /peopleInSpace to get the number of people in space right now');
+    ctx.reply('Type /sunRiseSet to get the sunrise and sunset times for your location');
 });
 
 // Launch the bot
