@@ -14,7 +14,7 @@ const SignUp = () => {
             console.log("sign up successful");
             console.log("email", data.email);
             sessionStorage.setItem("email", data.email);
-            navigate('/main');
+            navigate('/survival');
         }
     };
     return (
