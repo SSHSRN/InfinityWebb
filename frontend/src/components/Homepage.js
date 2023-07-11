@@ -93,12 +93,15 @@ const Homepage = () => {
             <div className="contentDiv">
                 <h1 className="homeIntro1">Downloadable Game</h1>
                 <p className="content">
-                    A downloadable game and an online-playable version of the same is also publised..
-                    ## Christo ## Add more content here
+                    If you are a fan of open world games, you will love our downloadable game. You will be able to explore snow mountains, different terrains and space maze . You will be able to travel to different planets and explore their unique environments. You will be able to interact with the environment and AI NPCs in the game.
+                    <br /><br />
+                    <div className="has-background-warning has-text-black-bis infoDiv">
+                        To download the game, click on <a href="https://drive.google.com/drive/folders/1aUIcbdUurk7qtMfkh6KN6gEFhbwqtHTE?usp=sharing" target="_blank" rel="noreferrer">this link</a> and download the contents. To play the game, open the folder and run the executable file.
+                    </div>
+                    <div className="has-background-warning has-text-black-bis infoDiv">
+                        To test the Telegram bot, click on <a href="https://t.me/infinitywebb_bot" target="_blank" rel="noreferrer">this link</a> and send the message /start to the bot.
+                    </div>
                 </p>
-                <div className="splitSection">
-                    <img className="img1" src="https://cdn.wallpapersafari.com/42/47/pTynIJ.jpeg" alt="VR" />
-                </div>
             </div>
         </>
     )

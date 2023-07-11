@@ -132,3 +132,9 @@
     object-position: center;
   }
   
+  .infoDiv {
+    position: relative;
+    margin-top: 50px;
+    padding: 20px 40px;
+    border-radius: 20px;
+  }
