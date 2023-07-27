@@ -1,12 +1,16 @@
 # InfinityWebb
 
 ## About
-InfinityWebb is a space-themed website that has a game playable online and offline. The game is a decision driven game where you have to make the right choices to survive. The endings of the game are based on the choices made by the player. 
+InfinityWebb is a space-themed website that has a game playable online and offline. 
+The Online Game is a decision driven game where you have to make the right choices to survive. The endings of the game are based on the choices made by the player. 
+The Offline Game is a Adventure game that has three levels (SpaceMaze, Snow,Water) The game gives an Action-Adventure theme for the player, also  the space maze is a interesting game which can make the player to feel curious in finding the destination
 
 ## Technologies Used
 - React
 - JavaScript
 - Python (Flask)
+- Unity Engine
+- C#
 - MongoDB
 - Docker Compose
 - Google Cloud Platform
